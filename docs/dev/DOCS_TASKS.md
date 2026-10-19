@@ -37,7 +37,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-007 — Prepare and accept layout.
     - Allocate source, tests, documentation and artifacts to physical paths consistently with the accepted design and PLAN.
     - Review layout against the design and PLAN, update the PLAN review report, then present layout for human approval.
-- [ ] DOCS-008 — Prepare and accept TASKS.
+- [x] DOCS-008 — Prepare and accept TASKS.
     - Derive executable tasks, dependencies and required milestone/phase review units from accepted SPEC, PLAN and layout.
     - Complete required task-list QC and its human acceptance checkpoint. Do not start implementation or project implementation-phase objects yet.
 - [ ] DOCS-009 — Pass documentation package QC.
@@ -161,3 +161,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Layout approval was published in `1a55d0570e4a84fbf5f2d921c2563c26e8fb01df`, with exact remote branch readback; issue #7 was closed and read back as completed before TASKS derivation.
 - Proposed TASKS preserves PLAN's two phases/seven milestones, deriving 32 unchecked tasks with owned scope, dependencies, contracts and future verification evidence. It includes five milestone-review tasks and two single-task phase-review milestones; final review owns complete implementation/TODO reporting.
 - DOCS-008 and issue #8 remain incomplete pending first human TASKS approval. Conformance QC passed with TASKS-QC-001 corrected and rechecked; TASKS-REVIEW-REPORT retains source identities, coverage/count assessments and evidence. TASKS SHA-256: `086b8c5c763edd5433ae2244bebecff18c3f75d430ffc3880c0f45543938c639`. Implementation objects are not projected; whole-package QC and verified documentation integration still precede executable range selection.
+
+### DOCS-008 first approval — 2026-10-19
+
+- Human decision: “k” in response to TASKS proposal. Accepted proposal commit: `abfc5623c25f6488d56878deaa592a0607658e33`; TASKS SHA-256: `086b8c5c763edd5433ae2244bebecff18c3f75d430ffc3880c0f45543938c639`. Retain reviewed TASKS bytes unchanged.
+- Conformance QC passed with no unresolved finding. Approval covers 32 tasks, their scope/dependencies and required reviews, and does not select an executable range.
+- Publish and verify this approval, then close/read back issue #8 before DOCS-009 whole-package QC.

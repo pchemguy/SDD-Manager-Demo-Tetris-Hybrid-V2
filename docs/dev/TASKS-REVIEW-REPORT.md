@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Ready for human TASKS review**. Task conformance and decomposition QC pass with no unresolved confirmed finding. Human acceptance, whole-package DOCS-009 QC, published preparation integration and executable-range/phase-tracking gates remain pending; this report does not authorize implementation or hosted task projection.
+State: **Ready**, with first human TASKS approval recorded in DOCS_TASKS. Task conformance and decomposition QC pass with no unresolved confirmed finding. Whole-package DOCS-009 QC, published preparation integration and executable-range/phase-tracking gates remain pending; this report does not authorize implementation or hosted task projection.
 
 Reviewed root: [TASKS](TASKS.md), SHA-256 `086b8c5c763edd5433ae2244bebecff18c3f75d430ffc3880c0f45543938c639`. No focused task children exist. Reviewer: sdd-tasks, single-agent document review on 2026-10-19; sdd-report format. All 32 task checkboxes remain unchecked.
 
@@ -60,3 +60,5 @@ Prerequisites form a forward-only graph with T-001 gated by completed preparatio
 sdd-tasks changed only T-021's ambiguous reviewer wording to “code review separately from test execution,” preserving the required review and accepted phase boundary. Revised TASKS SHA-256: `086b8c5c763edd5433ae2244bebecff18c3f75d430ffc3880c0f45543938c639`. Governing sources above remain unchanged.
 
 Recheck: all 32 IDs unique and consecutive; two phase roots and seven milestone parents match PLAN; all dependencies refer backward; five delivery reviews and two one-task phase reviews are present; all checkboxes unchecked. Local document links and Git whitespace checks pass after the report is written. Semantic coverage, count assessments, report paths and task ownership remain as reviewed above. TASKS-QC-001 is resolved; no blocker to presenting TASKS remains. Human approval and later preparation/implementation gates remain pending.
+
+Human decision: “k” accepted the published TASKS proposal `abfc5623c25f6488d56878deaa592a0607658e33`. The reviewed root hash is unchanged. Preparation package QC and integration remain required; no implementation range is selected.
