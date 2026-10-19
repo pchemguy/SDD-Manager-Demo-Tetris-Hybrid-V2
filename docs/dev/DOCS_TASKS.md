@@ -85,3 +85,11 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Accepted PROJECT blob: `55aa3d452b2efeedf8f77239a4f73f0109984885`. Retain the reviewed document bytes unchanged in this approval commit; its proposal wording identifies the presented artifact, while this record establishes first approval.
 - Confirmed the remote design-docs/main ref matched the proposal commit during the read-only diagnostics. Owner checks for scope, feature coverage, document boundaries, heading spacing and local links were recorded with the proposal.
 - DOCS-002 is complete. Publish/read back this approval commit, then close/read back issue #2 before ARCHITECTURE authoring. Architecture has its own human checkpoint; future documents and implementation remain unapproved.
+
+### DOCS-003 ARCHITECTURE proposal — 2026-10-19
+
+- PROJECT first approval was published in `f7a9001452bcf44f840061a69729b26096919c3a`, with exact remote ref readback. Issue #2 was closed and read back as completed before architecture authoring.
+- Proposed [ARCHITECTURE.md](ARCHITECTURE.md) defines game-engine, browser-controller and presentation responsibilities, one authoritative gameplay state, directed dependencies, explicit time/randomness boundaries, Canvas/HTML rendering and verification seams.
+- Owner review checked accepted PROJECT coverage, one owner per major responsibility, acyclic dependency direction, modern-feature consistency, alternatives/tradeoffs and separation from detailed component, behavioral, delivery and physical-layout contracts. Exact gameplay rules remain for SPEC.
+- Checked Markdown heading separation, local links, whitespace and the unchanged accepted PROJECT blob. No product code or product tests were created or run.
+- First human approval is pending. DOCS-003 remains unchecked and issue #3 remains open. Do not begin DECOMPOSITION until the presented ARCHITECTURE is accepted.
