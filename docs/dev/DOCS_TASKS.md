@@ -127,3 +127,10 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Human decision: “k” in response to the SPEC checkpoint. Accepted proposal commit: `11089cfc408648a3256df9b51713d5080fa6b9b6`, covering SPEC, both game/browser children and its retained QC report. This accepts the detailed rules presented there, including bounded non-SRS kicks, controls, scoring, lock-timer reset behavior and browser session contracts.
 - Retain the reviewed SPEC and child bytes unchanged. The reviewed SHA-256 identities remain those in SPEC-REVIEW-REPORT Revision 1; technical QC has no unresolved finding. Update the report's current human-decision metadata without changing its technical review history.
 - DOCS-005 is complete. Publish/read back this approval commit, then close/read back issue #5 before PLAN authoring. PLAN and layout retain separate checkpoints; TASKS and implementation are not yet authorized for execution.
+
+### DOCS-006 PLAN proposal — 2026-10-19
+
+- SPEC approval was published in `14bc2a583d0590d086d71538368d88bbe218c794`, with exact remote ref readback; issue #5 was closed and read back as completed before PLAN authoring.
+- Proposed PLAN delivers a usable classic game in P1 and the remaining modern placement/hold behavior in P2, with explicit scoped coverage and complete first-version acceptance. It reserves milestone reviews and one dedicated final review milestone per phase.
+- PLAN first approval remains pending. DOCS-006 stays unchecked and issue #6 open. Do not create layout until PLAN is accepted; combined PLAN/layout QC and separate layout approval remain required before TASKS.
+- Completed strategy-only QC in [PLAN-REVIEW-REPORT.md](PLAN-REVIEW-REPORT.md). Retained two initial findings and Revision 1 corrections, exact source identities, full contract routes and 3/2 delivery-milestone count assessment with separate phase-review milestones. No technical strategy blocker remains; physical layout and TASKS readiness are pending.
