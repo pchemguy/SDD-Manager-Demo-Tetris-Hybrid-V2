@@ -2,9 +2,9 @@
 
 ## Current gate
 
-State: **Ready for dependent layout authoring**, subject to publication/tracking prerequisites. No confirmed strategy finding remains unresolved. PLAN first approval is recorded in DOCS_TASKS for proposal commit `d065dd8ad1b9363e85ff25d2d18450eb611dc2be`. Layout has not been authored or reviewed; combined PLAN/layout readiness and separate layout approval remain prerequisites for TASKS. This report does not authorize implementation or hosted implementation projection.
+State: **Ready for human layout review** after combined PLAN/layout QC. No confirmed strategy/placement finding remains unresolved. PLAN first approval is recorded in DOCS_TASKS for proposal commit `d065dd8ad1b9363e85ff25d2d18450eb611dc2be`. Layout first approval remains pending; TASKS derivation is held until that separate decision and its publication/issue closure. This report does not authorize implementation or hosted implementation projection.
 
-Reviewed root: [PLAN](PLAN.md). Final reviewed SHA-256: `9123ceca5a3720db44a174b3e9a07fe6a0ebc8d027ccb8939edb52ea10c44e4a`. No focused PLAN children or existing layout are in scope.
+Reviewed roots: [PLAN](PLAN.md), SHA-256 `9123ceca5a3720db44a174b3e9a07fe6a0ebc8d027ccb8939edb52ea10c44e4a`, and [layout](layout.md), final SHA-256 `c5482b42763b84c91141891b773dd8a0dd5f0880cea3d57657b6d7ea1afd8180`. No focused PLAN/layout children are required. Revisions 2–3 retain the new placement assessment; earlier strategy-only observations remain historical.
 
 Governing SPEC package at accepted proposal commit `11089cfc408648a3256df9b51713d5080fa6b9b6`:
 
@@ -79,3 +79,41 @@ No unresolved confirmed strategy finding or exception remains. Technical strateg
 ## PLAN human acceptance update
 
 The user accepted PLAN with “k” at its separate review checkpoint on 2026-10-19. DOCS_TASKS owns the first approval and checked task. PLAN content and governing SPEC/design identities are unchanged, so Revision 1's strategy assessment remains current. Layout and its human checkpoint remain distinct; no placement readiness is inferred from strategy acceptance.
+
+## Revision 2 — Combined PLAN/layout review
+
+Date: 2026-10-19. Owner/reviewer: sdd-plan. Accepted PLAN strategy is unchanged from `d065dd8ad1b9363e85ff25d2d18450eb611dc2be`, blob `0396bf53db6968bb4303a857e71a0ca46e716505`; first approval was published in `daa0d5eb5199cd31955fca8673531fe55b04ab50`, with issue #6 closure verified. SPEC/design sources remain unchanged.
+
+Initial layout reviewed SHA-256: `760dbfadc6c18091d56cfb6dcf01a622f5af58860600fab157ae308b11706295`. Root AGENTS navigation SHA-256: `723afd65f34d9db5e06a0747b33097fe36ede235097ea4a1c5abc41d50339a06`; this maintenance preserves all pre-existing controlling text and adds only links and accurate preparation/proposed-path status. No command is represented as validated.
+
+| Combined coverage | Physical allocation | PLAN/design assessment |
+| --- | --- | --- |
+| Geometry, placement, board, sequence and progression | Engine modules with corresponding engine unit checks | Each logical rule owner has one home; placement owns both ghost/drop landing and kicks. Supports 1.1–1.2 and 2.1–2.2 without another engine tree. |
+| Session state, timing and transition failure boundaries | session facade plus explicit transition calculations and snapshot projection | Sole live-state owner remains the session; separate calculation files permit bounded checks, atomicity and localized edits without exporting test-only public APIs. |
+| Input/time/controller resources | Browser modules, controlled unit/integration tests and real browser checks | No browser dependency enters the engine; callbacks/adapters do not require a global event bus or cyclic imports. Covers 1.3 and modern input interactions. |
+| Canvas, HTML, style and bootstrap | UI modules and root shell/entry, with browser acceptance cases | Read-only snapshots/type-only engine dependencies; no rule execution in rendering. Bootstrap is explicit and imports remain testable. |
+| Testing, fixtures and supported browsers | Unit/integration/browser/helper/fixture locations and Playwright configuration | Deterministic streams/replays and controlled clocks have homes; branded Chrome/Edge channels and managed Firefox provenance are distinguished. Generic Chromium cannot silently replace named browser evidence. |
+| Tool configuration and typing | npm lockfile, Vite/Vitest/Playwright roots and scoped TypeScript configs | Concrete configuration ownership is sufficient for foundation tasks; compatible versions, install commands and browser provisioning remain implementation checks. Ambient type isolation needed the correction below. |
+| Generated output and durable evidence | dist, ignored dependencies/runner output, existing milestone/phase/final report prefixes | Static runtime artifacts exclude development content; committed reports are separated from generated test output. Sensitive-file serving protection needed the correction below. |
+| User/developer docs and governing navigation | README, planned user/developer guides, existing docs/dev and preserved AGENTS | Future guide paths are allocations, not broken navigation links; preparation progress remains DOCS_TASKS, with product TASKS explicitly not present. |
+
+The 3/2 delivery milestone counts and 1/1 phase-review allocation are unchanged; layout introduces no extra phase, milestone, product behavior or task. The ownership map works in both directions, and each directory/module/test location has a stated owner. Existing `.agents` content remains development input and an excluded product/test-collection target.
+
+Official Vite, Vitest and Playwright documentation was inspected for proposed tooling capabilities, type checking versus transpilation, browser projects/channels and file exclusion facilities. This is source-backed feasibility assessment, not an installation, product build or browser execution result. Required browser availability is not presumed.
+
+| Finding | Initial location / consequence | Correction owner / recheck | Current disposition |
+| --- | --- | --- | --- |
+| LAYOUT-QC-001 | tsconfig.engine ownership said no DOM but did not explicitly exclude ambient Node types. Engine globals could leak through transitive development typings despite the intended host-independent boundary. | sdd-plan: require language libraries with an empty ambient types list; recheck engine/browser/test configuration separation. | Resolved in Revision 3. |
+| LAYOUT-QC-002 | Root shell and local credential coexist, but initial dev-server configuration ownership did not explicitly route credential-file exclusion checks. Git ignore alone does not control HTTP file serving. | sdd-plan: assign dev-server sensitive-file exclusions and synthetic refusal/artifact checks to existing configuration/test owners; preserve default exclusions and avoid touching real credential content. | Resolved in Revision 3. |
+
+Initial combined placement gate: Blocked by these two bounded implementation-layout clarifications. No accepted SPEC or PLAN change was needed.
+
+## Revision 3 — Placement corrections and final recheck
+
+sdd-plan clarified engine-only TypeScript checking to exclude both DOM and Node ambient globals, and assigned development-server credential-file exclusions to the Vite configuration owner. Synthetic server checks and built-output inspection have explicit locations/purposes; real credentials are not used as test fixtures. The new details implement existing engine-dependency and protected-credential obligations rather than adding gameplay scope.
+
+Final layout SHA-256: `c5482b42763b84c91141891b773dd8a0dd5f0880cea3d57657b6d7ea1afd8180`. PLAN SHA-256 remains `9123ceca5a3720db44a174b3e9a07fe6a0ebc8d027ccb8939edb52ea10c44e4a`. AGENTS navigation identity remains `723afd65f34d9db5e06a0747b33097fe36ede235097ea4a1c5abc41d50339a06`.
+
+Rechecks cover every decomposed component and its source/test owner, public/private imports and runtime state isolation, phased integration support, scoped type/config collection, static artifact/credential exclusions, report/doc locations and accurate existing-versus-planned path statements. Local links, Markdown headings/whitespace, accepted-source preservation and the unchanged controlling AGENTS prefix are checked with the complete checkpoint before commit. No scaffolding or empty product path was created.
+
+Final combined technical gate: Ready. LAYOUT-QC-001 and LAYOUT-QC-002 are resolved; original PLAN-QC findings remain resolved. Human layout first approval remains pending and TASKS derivation is held. No exception is used. Product test/build/browser checks remain unrun because this is documentation preparation.

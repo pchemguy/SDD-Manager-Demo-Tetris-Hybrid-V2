@@ -140,3 +140,12 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Human decision: “k” in response to the PLAN checkpoint. Accepted proposal commit: `d065dd8ad1b9363e85ff25d2d18450eb611dc2be`; accepted PLAN blob: `0396bf53db6968bb4303a857e71a0ca46e716505`. Retain the reviewed strategy bytes unchanged.
 - Acceptance covers the two-phase first-version strategy, stable phase/milestone identities, delivery/review boundaries, dependencies and exits. PLAN-REVIEW-REPORT retains strategy QC with no unresolved finding; layout/placement coverage is still pending.
 - DOCS-006 is complete. Publish/read back this approval commit, then close/read back issue #6 before layout authoring. Combined PLAN/layout QC and separate layout first approval are required before TASKS.
+
+### DOCS-007 layout proposal — 2026-10-19
+
+- PLAN approval was published in `daa0d5eb5199cd31955fca8673531fe55b04ab50`, with exact remote branch readback; issue #6 was closed and read back as completed before layout authoring.
+- Proposed layout assigns engine/browser/UI source ownership, public/private boundaries, corresponding test/fixture homes, tool configuration, generated output, user/developer documentation and required report locations. Root AGENTS preserves controlling content and adds current document navigation with explicit proposed/unimplemented status.
+- Vite, Vitest and Playwright capabilities were checked against their official documentation; dependencies and browser channels were not installed or exercised. Proposed commands remain explicitly unvalidated.
+- DOCS-007 remains unchecked and issue #7 open pending combined PLAN/layout QC and first human layout approval. Do not derive TASKS until that approval is recorded and published with its issue closure verified.
+
+- Layout combined QC is retained in PLAN-REVIEW-REPORT Revisions 2–3, including two located placement findings and their corrections. Final technical PLAN/layout gate is Ready; first human layout approval remains pending. Source/link/style/ownership checks are document evidence, not product execution.

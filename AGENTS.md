@@ -35,3 +35,5 @@ Follow `sdd-manage`'s preparation and phase-activation workflows for required tr
 ## Project guidance
 
 Maintain project-specific navigation and validated setup/check commands here as they become established. Do not invent commands, paths, requirements or completion claims.
+
+Current development inputs are [PROJECT](docs/dev/PROJECT.md), [ARCHITECTURE](docs/dev/ARCHITECTURE.md), [DECOMPOSITION](docs/dev/DECOMPOSITION.md), [SPEC](docs/dev/SPEC.md) and [PLAN](docs/dev/PLAN.md). The [layout proposal](docs/dev/layout.md) allocates future engine, browser, UI, tests and tooling homes; product files and validated package commands do not exist yet. [DOCS_TASKS](docs/dev/DOCS_TASKS.md) owns preparation progress. Product TASKS and implementation ownership will be established after their required checkpoints. Read applicable nested instructions when selecting paths; do not treat bundled `.agents` content as product source.
