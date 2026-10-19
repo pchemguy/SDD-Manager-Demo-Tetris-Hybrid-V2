@@ -113,3 +113,11 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Human decision: “ok” in response to the DECOMPOSITION review checkpoint. Accepted proposal commit: `3948e92ee152d1941aacf2d644927d28e779fc03`; accepted DECOMPOSITION blob: `5d7b6f56fab0ea2560a3ab75316421aead22db81`. Retain the reviewed bytes unchanged.
 - Approval covers component responsibilities, state/resource ownership, provisional interfaces, collaboration and verification boundaries. Exact gameplay contracts were explicitly deferred to SPEC.
 - DOCS-004 is complete. Publish/read back this approval commit, then close/read back issue #4 before SPEC authoring. SPEC has a separate human checkpoint; its consequential gameplay decisions must be resolved before relying on them. No implementation range is selected.
+
+### DOCS-005 rule decision and SPEC proposal — 2026-10-19
+
+- DECOMPOSITION first approval was published in `e9c7e88229cda233bc250900a4e5d67db85a3974`, with exact remote branch readback; issue #4 was closed and read back as completed before SPEC authoring.
+- In the locking-policy question, the user selected “Full gravity interval (Recommended)”: normal landings and hard drops allow repositioning for one full current gravity interval before locking. This is an explicit rule decision, not first approval of the uncreated SPEC.
+- Proposed SPEC and its game/browser children define the complete first-version behavior. Timer-reset details, bounded non-SRS kicks, controls, scoring, repeat/focus/stall rules and engine contracts are presented for confirmation at the SPEC checkpoint. They are not claimed to be previously approved requirements.
+- Keep DOCS-005 unchecked and issue #5 open until required SPEC/design QC and first human approval are established. PLAN authoring remains held.
+- Completed SPEC/design QC in [SPEC-REVIEW-REPORT.md](SPEC-REVIEW-REPORT.md), retaining three initial findings and Revision 1 corrections/rechecks with exact source identities. Technical gate is Ready for the proposed scope; first human approval remains pending. Source/link/style and inline specification-data sanity checks are document evidence, not gameplay tests.
