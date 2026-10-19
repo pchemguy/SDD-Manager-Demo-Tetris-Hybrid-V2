@@ -1,6 +1,6 @@
 # Tetris component decomposition
 
-Status: proposed for first human approval.
+Status: accepted; first approval is recorded in [DOCS_TASKS](DOCS_TASKS.md).
 
 ## Scope and structural model
 

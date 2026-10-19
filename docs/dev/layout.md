@@ -1,6 +1,6 @@
 # Repository layout and ownership
 
-Status: proposed for first human approval. Paths described as planned are allocations for later implementation, not claims that files or functionality exist.
+Status: accepted; first approval is recorded in [DOCS_TASKS](DOCS_TASKS.md). Paths described as planned are allocations for later implementation, not claims that files or functionality exist.
 
 ## Governing structure and present state
 
@@ -81,7 +81,7 @@ Browser projects cover Chrome (`chrome` channel), Edge (`msedge` channel) and Pl
 
 Because repository-local credentials coexist with the root application shell, development-server configuration must deny access to `*.tkn` while retaining the tool's default sensitive-file exclusions. Browser/server smoke checks verify refusal using a synthetic token-shaped fixture, never by requesting or printing a real credential. Production browser checks serve only `dist/`; artifact inspection verifies no token/development files were copied into it.
 
-The root README owns concise user entry/navigation and verified setup/play/check commands. Planned `docs/USER-GUIDE.md` owns supported controls, gameplay and troubleshooting; planned `docs/DEVELOPMENT.md` owns reproducible setup, browser provisioning and check details. Keep user documentation aligned with the phase's delivered scope. `docs/dev/` retains authoritative design/SPEC/PLAN/layout/TASKS, preparation/QC, handoff and implementation evidence. TASKS is not present yet and will become the sole product execution checklist when accepted.
+The root README owns concise user entry/navigation and verified setup/play/check commands. Planned `docs/USER-GUIDE.md` owns supported controls, gameplay and troubleshooting; planned `docs/DEVELOPMENT.md` owns reproducible setup, browser provisioning and check details. Keep user documentation aligned with the phase's delivered scope. `docs/dev/` retains authoritative design/SPEC/PLAN/layout/TASKS, preparation/QC, handoff and implementation evidence. [TASKS](TASKS.md) is accepted and is the sole product execution checklist.
 
 Preserve root LICENSE, AI_DISCLOSURE.md, SDD-MANAGER.md, SKILL_DISCOVERY_PROTOCOL.md and manual AGENTS content. The bundled `.agents/` skills/plugin are development inputs, not product source and not an incidental repair target. Update only accurate governing-document navigation in AGENTS during this layout checkpoint; add setup/check commands there only after validation.
 
@@ -89,7 +89,7 @@ Preserve root LICENSE, AI_DISCLOSURE.md, SDD-MANAGER.md, SKILL_DISCOVERY_PROTOCO
 
 The same engine/browser/UI homes support both phases; add later modern behavior in its existing owner rather than creating a second engine or phase-specific source tree. P1 foundation can establish the entry/configuration and rule modules incrementally, P1 progression/reliability can extend their collaborators, and P2 can extend placement/projection/hold consumers with colocated relevant tests. TASKS owns concrete edit scopes and ordering.
 
-The [PLAN review report](PLAN-REVIEW-REPORT.md) includes combined strategy/placement QC, component-to-path/test mapping, dependency rules and source identities. No placement decision blocks task derivation technically once this proposal is accepted; human layout approval, later TASKS approval and the complete preparation gates still apply.
+The [PLAN review report](PLAN-REVIEW-REPORT.md) includes combined strategy/placement QC, component-to-path/test mapping, dependency rules and source identities. Layout and TASKS approvals are recorded in DOCS_TASKS; whole-package QC, published preparation integration and executable-range selection still govern implementation.
 
 ## Tooling references inspected
 

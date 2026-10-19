@@ -77,3 +77,14 @@ Final technical gate: Ready for the proposed scope. Human first approval remains
 ## Human acceptance update
 
 The user accepted the complete SPEC package with “k” at its review checkpoint on 2026-10-19. DOCS_TASKS owns the decision and checked task. SPEC and both child content hashes remain unchanged, so this acceptance metadata update does not invalidate Revision 1's technical assessment. Its original pending-review observations remain historical. Publication and issue closure must be verified before dependent PLAN authoring.
+
+## Revision 2 — Package status reconciliation
+
+sdd-manage coordinated editorial status/navigation corrections under DOCS-009; the owning document review rechecked the affected concern. Accepted behavior, architecture, phase/milestone identities, placement, task scopes and dependencies are unchanged. Proposal approval identities above remain historical evidence; current source identities are below. No human decision was reopened or inferred.
+
+- `PROJECT.md` SHA-256: `bc5ac8cbe268b109a459054684aa0b4cb5da212b9339c987645a46ba99ab1ffc`.
+- `ARCHITECTURE.md` SHA-256: `22b7354a4966ae9e81b76698054401ff7fe6c9bf36ad0c2c053ff84e5fa4e3f1`.
+- `DECOMPOSITION.md` SHA-256: `5b74e4c15c913cf4b9f1b8cb79913a89e976cc349e3828ad8a18a4f446adefe1`.
+- `SPEC.md` SHA-256: `d0ea5aed2561eb9db3d96cb2d7581872e26a8ec66196d4f598f5c84a44799681`.
+
+Recheck outcome: Ready for the same scoped conformance, with no new confirmed contract/decomposition finding. SPEC children remain byte-identical. The whole-package report owns preparation readiness; implementation evidence and range selection remain pending.

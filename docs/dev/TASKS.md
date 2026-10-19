@@ -1,6 +1,6 @@
 # Tetris implementation tasks
 
-Status: proposed for first human approval. All implementation checkboxes are unchecked; no executable range is selected.
+Status: accepted; first approval is recorded in [DOCS_TASKS](DOCS_TASKS.md). All implementation checkboxes are unchecked; no executable range is selected.
 
 ## Governing inputs and execution boundaries
 
@@ -157,4 +157,4 @@ Each executable task closes with its verified result, evidence and initial ownin
 
 ## Current boundary
 
-First human TASKS approval is pending. Next preparation work after approval is whole-package DOCS-009 QC and its verified publication/tracking/integration lifecycle. Product tasks remain unchecked and no implementation phase has been activated. The final preparation checkpoint must establish the human's executable range before task execution.
+First human TASKS approval is recorded in DOCS_TASKS. Whole-package DOCS-009 QC and its verified publication/tracking/integration lifecycle complete preparation. Product tasks remain unchecked and no implementation phase has been activated. The final preparation checkpoint must establish the human's executable range before task execution.

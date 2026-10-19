@@ -1,6 +1,6 @@
 # Tetris system specification
 
-Status: proposed for first human approval. The user selected one full current gravity interval of lock delay for both normal landings and hard drops. Other detailed contracts below are proposed for confirmation at this checkpoint.
+Status: accepted; first approval is recorded in [DOCS_TASKS](DOCS_TASKS.md). The user selected one full current gravity interval of lock delay for both normal landings and hard drops. The complete contracts below are accepted.
 
 ## S-SCOPE: Outcome and boundaries
 

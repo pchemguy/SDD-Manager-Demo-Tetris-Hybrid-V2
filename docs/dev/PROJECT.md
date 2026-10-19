@@ -1,6 +1,6 @@
 # Tetris project brief
 
-Status: proposed for first human approval.
+Status: accepted; first approval is recorded in [DOCS_TASKS](DOCS_TASKS.md).
 
 ## Purpose and intended outcome
 
@@ -10,7 +10,7 @@ The project uses SDD Manager to make requirements, design decisions, delivery ta
 
 ## First-version scope
 
-The proposed TypeScript baseline, extended by the user's explicit request, includes:
+The TypeScript baseline, extended by the user's explicit request, includes:
 
 - A 10×20 playfield and all seven tetrominoes.
 - Horizontal movement, rotation, automatic gravity and soft drop.
@@ -26,9 +26,9 @@ The proposed TypeScript baseline, extended by the user's explicit request, inclu
 
 All five modern features belong to the first version. Delivery planning may introduce them in successive usable increments without removing them from that version's intended scope.
 
-## Proposed product defaults
+## Product defaults
 
-These defaults are presented for confirmation with this brief:
+The accepted defaults are:
 
 - A single-player game that runs entirely in the browser, with no application server or account requirement.
 - Desktop keyboard play as the supported initial interaction; a layout that remains legible at ordinary desktop window sizes.
@@ -40,12 +40,12 @@ These defaults are presented for confirmation with this brief:
 
 Controls should respond predictably, and elapsed-time behavior should remain consistent across ordinary display refresh rates. Game rules should support repeatable automated tests. Browser checks should verify that keyboard input, rendering and session controls work together. Documentation should describe supported behavior and reproducible setup and check commands as those become established.
 
-## Decisions for later stages
+## Detailed contract owners
 
-ARCHITECTURE will select rendering and state boundaries. SPEC will define exact controls, scoring, level progression, gravity, spawn and top-out rules, rotation/kick rules, hold restrictions, ghost behavior, hard-drop scoring and locking policy. No specific immediate-lock or delayed-lock policy has been accepted yet.
+[ARCHITECTURE](ARCHITECTURE.md) defines rendering and state boundaries, and [DECOMPOSITION](DECOMPOSITION.md) defines component collaboration. [SPEC](SPEC.md) and its children define exact controls, scoring, progression, spawn, rotation, hold, ghost and drop contracts. The selected lock delay is one full current gravity interval for both normal landings and hard drops.
 
-PLAN will define delivery increments and exit conditions. This brief does not select an implementation task range or preapprove later document checkpoints.
+[PLAN](PLAN.md), [layout](layout.md) and [TASKS](TASKS.md) define delivery, placement and execution units. Document acceptance does not select an implementation range.
 
 ## Decision sources
 
-The user requested a classic browser-based Tetris game and then explicitly added hold, ghost piece, 7-bag randomization, wall kicks and hard drop to the proposed TypeScript baseline. Product defaults above remain proposals pending this document's acceptance. Preparation progress and approval evidence belong to [DOCS_TASKS.md](DOCS_TASKS.md).
+The user requested a classic browser-based Tetris game and then explicitly added hold, ghost piece, 7-bag randomization, wall kicks and hard drop to the proposed TypeScript baseline. Product defaults above are accepted. Preparation progress and approval evidence belong to [DOCS_TASKS.md](DOCS_TASKS.md).

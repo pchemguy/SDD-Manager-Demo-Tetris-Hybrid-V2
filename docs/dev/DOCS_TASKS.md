@@ -40,7 +40,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-008 — Prepare and accept TASKS.
     - Derive executable tasks, dependencies and required milestone/phase review units from accepted SPEC, PLAN and layout.
     - Complete required task-list QC and its human acceptance checkpoint. Do not start implementation or project implementation-phase objects yet.
-- [ ] DOCS-009 — Pass documentation package QC.
+- [x] DOCS-009 — Pass documentation package QC.
     - Require all preceding tasks complete and their issue closures verified when tracking is enabled.
     - Review the entire document set, necessary children and QC reports for consistency, traceability, delivery readiness and unresolved blockers. Check initialization, orientation, human acceptance and publication evidence.
     - Resolve blockers through their owning documents and recheck affected readiness and acceptance. Retain the package QC report with the preparation documents.
@@ -167,3 +167,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Human decision: “k” in response to TASKS proposal. Accepted proposal commit: `abfc5623c25f6488d56878deaa592a0607658e33`; TASKS SHA-256: `086b8c5c763edd5433ae2244bebecff18c3f75d430ffc3880c0f45543938c639`. Retain reviewed TASKS bytes unchanged.
 - Conformance QC passed with no unresolved finding. Approval covers 32 tasks, their scope/dependencies and required reviews, and does not select an executable range.
 - Publish and verify this approval, then close/read back issue #8 before DOCS-009 whole-package QC.
+
+### DOCS-009 whole-package QC — 2026-10-19
+
+- TASKS approval commit `15f82dd7fd5c319cea44f03e2724267c76c28c9f` was published/read back; issues #1–8 are verified completed in milestone 1 before final package work. Issue #9 remained open at QC entry.
+- DOCS-QC-REPORT records whole-package scope/contracts/ownership/traceability/dependencies/readiness review, exact current identities and DOCS-QC-001 editorial corrections/recheck. No accepted behavior/task scope changed; first approvals remain complete.
+- Required document checks pass. DOCS-009 result, report, corrected documents and refreshed HANDOFF are submitted together. Publish/read back, close/read back #9, explicitly merge/verify/publish to main, then close/read back sdd-docs-main. Implementation range remains unselected.

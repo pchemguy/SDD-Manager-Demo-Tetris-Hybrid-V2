@@ -4,7 +4,7 @@
 
 State: **Ready**, with first human TASKS approval recorded in DOCS_TASKS. Task conformance and decomposition QC pass with no unresolved confirmed finding. Whole-package DOCS-009 QC, published preparation integration and executable-range/phase-tracking gates remain pending; this report does not authorize implementation or hosted task projection.
 
-Reviewed root: [TASKS](TASKS.md), SHA-256 `086b8c5c763edd5433ae2244bebecff18c3f75d430ffc3880c0f45543938c639`. No focused task children exist. Reviewer: sdd-tasks, single-agent document review on 2026-10-19; sdd-report format. All 32 task checkboxes remain unchecked.
+Reviewed root: [TASKS](TASKS.md), SHA-256 `dab78da40bb364b537604ab1526f6d09173ec5b1f87ba8b4c26e27b82be45490`. No focused task children exist. Reviewer: sdd-tasks, single-agent document review on 2026-10-19; sdd-report format. All 32 task checkboxes remain unchecked.
 
 Governing states below are Git blobs at accepted layout checkpoint `1a55d0570e4a84fbf5f2d921c2563c26e8fb01df`. SPEC and PLAN reports retain upstream conformance and approval evidence; DOCS_TASKS records first approvals through layout. These source files were not changed during task derivation.
 
@@ -62,3 +62,13 @@ sdd-tasks changed only T-021's ambiguous reviewer wording to “code review sepa
 Recheck: all 32 IDs unique and consecutive; two phase roots and seven milestone parents match PLAN; all dependencies refer backward; five delivery reviews and two one-task phase reviews are present; all checkboxes unchecked. Local document links and Git whitespace checks pass after the report is written. Semantic coverage, count assessments, report paths and task ownership remain as reviewed above. TASKS-QC-001 is resolved; no blocker to presenting TASKS remains. Human approval and later preparation/implementation gates remain pending.
 
 Human decision: “k” accepted the published TASKS proposal `abfc5623c25f6488d56878deaa592a0607658e33`. The reviewed root hash is unchanged. Preparation package QC and integration remain required; no implementation range is selected.
+
+## Revision 2 — Package status reconciliation
+
+sdd-manage coordinated editorial status/navigation corrections under DOCS-009; the owning document review rechecked the affected concern. Accepted behavior, architecture, phase/milestone identities, placement, task scopes and dependencies are unchanged. Proposal approval identities above remain historical evidence; current source identities are below. No human decision was reopened or inferred.
+
+- `PLAN.md` SHA-256: `7775ab7efe655284f696366a6b15281c0fcb70ed91029994224749aeedf104d3`.
+- `layout.md` SHA-256: `6d2820aef2d0dbe904fecf6fd292362839d716e364343ca2c0efcdc3a4fefb68`.
+- `TASKS.md` SHA-256: `dab78da40bb364b537604ab1526f6d09173ec5b1f87ba8b4c26e27b82be45490`.
+
+Recheck outcome: Ready for the same scoped conformance, with no new confirmed contract/decomposition finding. SPEC children remain byte-identical. The whole-package report owns preparation readiness; implementation evidence and range selection remain pending.

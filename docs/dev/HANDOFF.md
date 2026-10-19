@@ -1,34 +1,32 @@
 # Project handoff
 
-Checkpoint: main development, documentation initialization.
-This snapshot describes initialization; recover subsequent progress from [DOCS_TASKS](DOCS_TASKS.md) and Git before continuing.
+Checkpoint: main documentation package QC complete; integration/final preparation checkpoint pending.
 
-Outcome: all four root initialization files were retained unchanged; the preparation checklist and this checkpoint were created. No product code or accepted project brief exists at this checkpoint.
+## Workflow and governing state
 
-## Workflow and sources
+- Owner/stage: sdd-manage, main development preparation; sdd-verify package QC passes in [DOCS-QC-REPORT](DOCS-QC-REPORT.md).
+- Governing inputs: [PROJECT](PROJECT.md), [ARCHITECTURE](ARCHITECTURE.md), [DECOMPOSITION](DECOMPOSITION.md), [SPEC](SPEC.md) and children, [PLAN](PLAN.md), [layout](layout.md), [TASKS](TASKS.md); progress/approval/publication evidence in [DOCS_TASKS](DOCS_TASKS.md).
+- Instructions: root [AGENTS](../../AGENTS.md), repository-bundled [SDD Manager](../../.agents/plugins/sdd-manager/PLUGIN.md) 0.15.0. Standard reporting; publish/read back each commit.
+- User accepted all seven roots sequentially, latest “k” accepted TASKS proposal `abfc5623c25f6488d56878deaa592a0607658e33`. Editorial status reconciliation under DOCS-009 changes no accepted contract or task scope.
 
-- Workflow/stage/owner: main development; documentation preparation; `sdd-manage`, with `sdd-design` owning PROJECT.
-- Governing instructions: [AGENTS](../../AGENTS.md), [discovery protocol](../../SKILL_DISCOVERY_PROTOCOL.md), [SDD Manager](../../.agents/plugins/sdd-manager/PLUGIN.md), and [DOCS_TASKS](DOCS_TASKS.md).
-- Package: repository-bundled SDD Manager 0.15.0; preserve the pinned templates and procedures.
+## Product and execution boundary
 
-## Scope and human decisions
+- TypeScript browser Tetris, classic baseline plus hold, ghost, 7-bag, bounded wall kicks and hard drop. One full current gravity interval delays locking for both normal and hard-drop landings; the exact kick scheme is custom, not SRS.
+- Engine owns state/rules; browser controller owns time/input/resources; Canvas/HTML consume detached snapshots. No backend, persistence, touch, multiplayer or audio.
+- TASKS has 32 unchecked tasks across two phases and seven milestones. No product source, installed tooling or gameplay verification exists. No implementation range is selected and no implementation objects are projected.
+- Current authority includes completing preparation publication/tracking/integration. No future human checkpoints are preapproved. Stop at final preparation checkpoint for executable range selection.
 
-- Objective: develop the TypeScript browser Tetris game with the classic baseline and hold, ghost, 7-bag randomization, wall kicks and hard drop; direction recorded in DOCS_TASKS.
-- Current authorized work: prepare and publish the PROJECT proposal under the development request and repository instructions.
-- Exact stop: present PROJECT and pause for its first human approval before ARCHITECTURE. Subsequent roots have their own checkpoints; implementation range is not yet selected.
-- Applicable preapprovals: none. Proposed product defaults must remain identifiable as proposals until accepted.
-- Tracking: enabled by root AGENTS for documentation and implementation. Preparation milestone 1 and DOCS issues #1–#9 were verified before writes. Implementation projection is not active.
-- Publication/reporting: publish each owned commit and verify containment; Standard reporting after Explicit startup.
+## Branch and hosted state
 
-## Branches and return
+- Working branch: `design-docs/main`; recorded creation parent/default/return target: `main`; branch-off `6baec3f9c8a652bc4850d27998bbc97db2c99bd9`. No suspended parent work.
+- Tracking enabled by AGENTS: native milestone 1 `sdd-docs-main`, issues #1–9. Issues #1–8 verified completed; #9 open at QC entry. Implementation activation is gated until preparation completes and a range is selected.
+- TASKS approval published/read back at `15f82dd7fd5c319cea44f03e2724267c76c28c9f`. DOCS-009 commit/publication and downstream integration effects are not established by this pre-commit snapshot.
 
-- Working branch: `design-docs/main`.
-- Creation parent / eventual integration target: `main`.
-- Branch-off commit: `6baec3f9c8a652bc4850d27998bbc97db2c99bd9`.
-- Suspended parent: none. Preparation integrates only after all document approvals and package QC; the final implementation checkpoint remains required.
+## Pending transitions and continuation
 
-## Pending work and next action
+1. Publish/read back this DOCS-009 result; close/read back issue #9 with actual evidence.
+2. Refresh actual default main; explicitly merge the pinned complete documentation tip with two parents, verify merged documents and protected paths, commit/push/read back. Reconcile this handoff to main's final preparation boundary in the merge.
+3. After verified published integration, close/read back milestone 1. Retain the preparation branch.
+4. Report package pass, merged/published state and milestone closure; ask the human to select implementation scope, for example full Phase 1. Do not activate phases or implement until selected.
 
-- Publish/read back the initialization commit, then close/read back DOCS-001 issue #1. Those later effects are not established by this snapshot.
-- Next: draft and publish PROJECT with truthful root README navigation, present its scope/defaults and await acceptance. DOCS_TASKS and later Git evidence own intermediate progress.
-- No game implementation or product checks have run.
+Recover later effects from Git, DOCS_TASKS and hosted readback before repeating operations. Credential helper workaround remains external and transient; no bundled plugin change is authorized by this project. Never expose credential material.

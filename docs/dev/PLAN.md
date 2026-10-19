@@ -1,6 +1,6 @@
 # Tetris delivery plan
 
-Status: proposed for first human approval. This plan defines delivery strategy; it does not select an executable task range.
+Status: accepted; first approval is recorded in [DOCS_TASKS](DOCS_TASKS.md). This plan defines delivery strategy; it does not select an executable task range.
 
 ## Objective and governing inputs
 
