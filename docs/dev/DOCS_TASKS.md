@@ -22,7 +22,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-002 — Prepare and accept PROJECT.
     - Establish the project brief: purpose, users, outcomes, scope, non-goals and consequential constraints; identify material assumptions and unresolved decisions.
     - Review the proposal with the human and complete its acceptance checkpoint.
-- [ ] DOCS-003 — Prepare and accept ARCHITECTURE.
+- [x] DOCS-003 — Prepare and accept ARCHITECTURE.
     - Define major system blocks, relationships, dependency direction and consequential structural decisions from the accepted brief.
     - Review the proposal with the human and complete its acceptance checkpoint.
 - [ ] DOCS-004 — Prepare and accept DECOMPOSITION.
@@ -93,3 +93,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Owner review checked accepted PROJECT coverage, one owner per major responsibility, acyclic dependency direction, modern-feature consistency, alternatives/tradeoffs and separation from detailed component, behavioral, delivery and physical-layout contracts. Exact gameplay rules remain for SPEC.
 - Checked Markdown heading separation, local links, whitespace and the unchanged accepted PROJECT blob. No product code or product tests were created or run.
 - First human approval is pending. DOCS-003 remains unchecked and issue #3 remains open. Do not begin DECOMPOSITION until the presented ARCHITECTURE is accepted.
+
+### DOCS-003 first approval — 2026-10-19
+
+- Human decision: “ok” in response to the ARCHITECTURE review checkpoint. Accepted proposal commit: `49b0de9628493776ac68beba8a7498114807df25`; accepted ARCHITECTURE blob: `6a1722636541517c9ba9454dae1acbb80114173d`. Retain the reviewed bytes unchanged.
+- Acceptance covers the deterministic engine, browser controller, Canvas/HTML presentation and explicit time/randomness boundaries. The published proposal's source and document checks were verified; its remote branch readback matched.
+- DOCS-003 is complete. Publish/read back this approval commit, then close/read back issue #3 before DECOMPOSITION authoring. DECOMPOSITION and later roots retain their individual checkpoints; no implementation range is selected.
