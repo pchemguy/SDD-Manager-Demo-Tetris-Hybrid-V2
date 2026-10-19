@@ -2,41 +2,52 @@
 
 [forge-project.mjs](forge-project.mjs) is the optional local execution mechanism for [implementation projection](../references/github-projection.md) and [docs-main preparation](../references/github-docs-preparation.md), after the [GitHub backend](../references/github.md) prerequisites. Project is a verb here: the utility projects tracking objects. sdd-manage retains phase/preparation eligibility and execution authority.
 
-Use the separate [input-authoring workflow](forge-project-input.md) and [draft generator](forge-project-draft.mjs) for explicit JSON, source binding and outgoing-content review. Phase briefs/dependencies require agent enrichment; main preparation consumes complete [bundled definitions](../../../assets/DOCS_TRACKING_TEMPLATE.json). Missing facilities or unsupported layouts use the existing backend without weakening its gates.
+For routine docs-main work, use the single-call entry below: it builds a source-bound request in memory from complete [bundled definitions](../../../assets/DOCS_TRACKING_TEMPLATE.json). No draft file or shell chain is required. The [input-authoring workflow](forge-project-input.md) and [draft generator](forge-project-draft.mjs) remain available for explicit JSON; implementation phases require agent-authored briefs/dependencies and a reviewed request. Missing facilities or unsupported layouts use the existing backend without weakening its gates.
 
 ## Runtime and invocation
 
-Requires Node 22+, native Git, bundled [projection-input.mjs](projection-input.mjs), [github-client.mjs](github-client.mjs), [forge-runtime.mjs](forge-runtime.mjs), [protected-token.mjs](../../sdd-manage/scripts/protected-token.mjs) and the same package's definition JSON. Windows uses native SystemRoot/System32 whoami/icacls and CMD-compatible invocation; Linux uses POSIX ownership/mode checks. No PowerShell, npm dependency, keyring, installation or credential/configuration repair is involved.
+Requires Node 22+, native Git, bundled [projection-input.mjs](projection-input.mjs), [github-client.mjs](github-client.mjs), [forge-runtime.mjs](forge-runtime.mjs), [protected-token.mjs](../../sdd-manage/scripts/protected-token.mjs) and the same package's definition JSON. Invocation is Windows CMD-compatible, and the token file needs ordinary OS read access on Windows and Linux. No PowerShell, npm dependency, keyring, installation or credential/configuration repair is involved.
 
 The following commands are abstract templates, not selected project identities:
 
 ~~~text
-node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-project.mjs" phase --repo "<WORKTREE_ROOT>" --remote origin --request "<REQUEST_FILE>" --check
-node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-project.mjs" phase --repo "<WORKTREE_ROOT>" --remote origin --request "<REQUEST_FILE>" --apply
-node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-project.mjs" docs-main --repo "<WORKTREE_ROOT>" --remote origin --request "<REQUEST_FILE>" --reconcile-only
+node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-project.mjs" docs-main --repo "<WORKTREE_ROOT>" --check
+node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-project.mjs" docs-main --repo "<WORKTREE_ROOT>" --apply --confirm-eligibility
+node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-project.mjs" docs-main --repo "<WORKTREE_ROOT>" --reconcile-only
+node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-project.mjs" phase --repo "<WORKTREE_ROOT>" --request "<REQUEST_FILE>" --check
 ~~~
 
 | Argument | Contract |
 | --- | --- |
-| phase or docs-main | Exactly one scope, matching the input kind. phase selects only its source-defined phase; docs-main selects the nine documentation tasks and fixed native `sdd-docs-main` milestone. |
+| phase or docs-main | Exactly one scope; a supplied request must match it. phase selects only its source-defined phase; docs-main selects the nine documentation tasks and fixed native `sdd-docs-main` milestone. |
 | --repo PATH | Exact eligible native worktree root, not an implicit launch-directory assumption. |
-| --remote NAME | Explicit configured remote with one effective GitHub push destination matching input repository. Existing HTTPS/SSH forms are normalized without changing transport/configuration. |
-| --request FILE | Explicit bounded UTF-8 JSON, optional UTF-8 BOM. Relative paths resolve from launch directory. |
+| --remote NAME | Optional configured remote, default origin. Require one effective GitHub push destination; bind a supplied request to it. Existing HTTPS/SSH forms are normalized without changing transport/configuration. |
+| --request FILE | Required for phase; optional for docs-main. Bounded UTF-8 JSON, optional UTF-8 BOM. Relative request-file paths resolve from launch directory. Cannot combine with --tasks or --confirm-eligibility. |
+| --tasks FILE | Request-free docs-main only: optional repository-root-relative Markdown owner. Defaults to docs/dev/DOCS_TASKS.md; only absence of that implicit default uses the bundled task template. |
 | --check | Local source/schema/structure/content preview; reads no credential, makes no API call and acquires no hosted-operation lock. |
-| --apply | Create/reuse/verify after complete positive caller eligibility. |
+| --apply | Create/reuse/verify after complete positive caller eligibility. Request-free docs-main also requires --confirm-eligibility. |
+| --confirm-eligibility | Request-free docs-main --apply only: explicitly assert all existing scope-specific eligibility facts after establishing them. This flag does not verify facts or approve future documents. |
 | --reconcile-only | Authenticated complete observation without hosted writes; missing objects remain pending. |
 | --token-file PATH | Optional root-relative eligible credential path, default gh.tkn. Never a token value. |
 | --timeout-ms N | Overall elapsed budget, default 120000, range 1000–300000 ms. |
 | --request-timeout-ms N | Header/body budget, default 15000, range 100–60000 ms, capped by remaining overall time. |
 | --help or -h | Standalone harmless usage; no other arguments. |
 
-Exactly one execution flag is required. Reject unknown/duplicate/missing arguments. Help/imports have no credential/Git/network effects. The normal CLI emits one JSON object to stdout; it writes no required projection map or session file. The caller may retain an exact result with existing evidence. Local regular inputs/filesystem are trusted; elapsed budgets bound supported process/network waits rather than promising hard real-time behavior for arbitrary OS filesystem failure.
+Exactly one execution mode is required. Reject unknown/duplicate/missing arguments. Help/imports have no credential/Git/network effects. The normal CLI emits one JSON object to stdout; it writes no required projection map or session file. The caller may retain an exact result with existing evidence. Local regular inputs/filesystem are trusted; elapsed budgets bound supported process/network waits rather than promising hard real-time behavior for arbitrary OS filesystem failure.
 
 Request/source readers reject known non-regular files before opening and recheck the descriptor. POSIX opens use nonblocking mode to avoid waiting on a changed FIFO; Windows uses ordinary read-only opens. These checks do not remove the trusted-filesystem requirement or guarantee arbitrary device/network filesystem behavior.
 
+## Main preparation defaults and explicit inputs
+
+With docs-main and no --request, select --tasks when supplied; otherwise read docs/dev/DOCS_TASKS.md relative to --repo, preserving the document created from the package template and its checked progress. If that implicit default does not exist, read the running package's DOCS_TASKS_TEMPLATE.md for initial pre-write preparation. Do not create or copy a target document. An explicitly missing path, malformed existing document, directory, dangling link or unreadable source fails; these conditions do not trigger a template fallback. Hosted modes still require a repository source to match committed HEAD text.
+
+The same source selection and origin default apply to forge-project-draft.mjs. An alternate --remote is honored; a missing origin does not cause remote guessing. --tasks paths resolve from --repo regardless of the shell's working directory. --request continues to bind its own source and repository, and cannot be overridden with --tasks. Phase projection always requires its reviewed JSON; structural drafting cannot supply semantic dependencies or briefs.
+
+Run --check to review outgoing content without credentials or API access. Before request-free --apply, establish every fact in the [eligibility table](forge-project-input.md#eligibility-means-actual-scope-specific-facts), then pass --confirm-eligibility to carry those explicit assertions into the in-memory request. Omission fails before provider access. With --request, the existing eligibility booleans remain authoritative caller assertions and the confirmation flag is rejected. Preview and read-only reconciliation need no positive eligibility assertions; reconciliation reports missing objects as pending and creates nothing. Return only the existing JSON result; no temporary request or projection-map file is required.
+
 ## Preconditions and effects
 
-The caller establishes actual authorization, tracking confirmation, current source/QC/acceptance, required baseline publication, selected phase/preparation eligibility, cross-list identity/dependencies, exclusive remote execution and reviewed outgoing content. Scope-specific meanings are in the input guide. Positive JSON flags are assertions, not independent evidence.
+The caller establishes actual authorization, tracking confirmation, current source/QC/acceptance, required baseline publication, selected phase/preparation eligibility, cross-list identity/dependencies, exclusive remote execution and reviewed outgoing content. Scope-specific meanings are in the input guide. Positive JSON flags and --confirm-eligibility are assertions, not independent evidence.
 
 Native preflight binds root/remote/source identity before credentials. --apply/reconcile-only use the already eligible ignored/untracked contained token under the existing Windows/POSIX policy. No token discovery/store/configuration change occurs. The source is rechecked after hosted effects; drift blocks success while retaining known effects.
 
@@ -76,6 +87,6 @@ Normal results contain schema_version, ok, code, stage and remote_state. Hosted 
 
 Each effect identifies type/key, observed id/name/number/state where available, status and verified. Status is created, reused, observed_after_error, missing, not_applied or unknown. Recovered uncertain effects retain interrupted_by and available safe status/correlation. verified records an observation, not an atomic snapshot or product acceptance. Associations identify task ID, issue/milestone numbers, observed state/reason and constructed GitHub issue URL. Normal hosted results omit full private task briefs; --check deliberately exposes reviewed payload content locally.
 
-Exports are ForgeError, parseCli, reconcileProjection and run. The lower-level core requires a parsed source inventory and explicitly authorized projection transport; it does not replace run's real root/source/token/lock checks. Programmatic run accepts parseCli fields and optional controlled fetchImpl; local pre-lock errors may throw. The CLI always converts failures to safe JSON/exit status. Shared dependencies remain bundled.
+Exports are ForgeError, parseCli, reconcileProjection and run. The lower-level core requires a parsed source inventory and explicitly authorized projection transport; it does not replace run's real root/source/token/lock checks. Programmatic run accepts parseCli fields, including request-free docs-main with optional tasks/remote and explicit confirmEligibility for apply, and optional controlled fetchImpl; local pre-lock errors may throw. The CLI always converts failures to safe JSON/exit status. Shared dependencies remain bundled.
 
-Source tests use synthetic credentials/provider objects plus real local Git/filesystem/protection/CRLF/path/locking checks. Native Windows CMD/Linux Node 22/24 CI covers these contracts. These results do not establish live provider permissions, installed-agent routing, arbitrary OS configurations or actual project completion.
+Source tests use synthetic credentials/provider objects plus real local Git/filesystem/token/CRLF/path/locking checks. Native Windows CMD/Linux Node 22/24 CI covers these contracts. These results do not establish live provider permissions, installed-agent routing, arbitrary OS configurations or actual project completion.

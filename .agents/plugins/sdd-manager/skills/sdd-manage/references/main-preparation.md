@@ -11,7 +11,7 @@ Use this procedure for greenfield projects and resumed incomplete main documenta
 
 ### Transient projection lock
 
-After tracking selection and read-only eligibility checks, the optional forge utility may create only its nonce-owned `sdd-forge-close.lock/owner.json` in the target Git common directory while establishing/read-backing projection. This temporary coordination effect serializes linked worktrees; it does not clear the tracking gate. Cleanup removes only that owned lock. A retained or conflicting lock requires process/effect reconciliation before another operation.
+After tracking selection and read-only eligibility checks, the optional forge utility may create only its nonce-owned `sdd-forge-close.lock/owner.json` in the target Git common directory while establishing and reading back projection. This temporary coordination effect serializes linked worktrees; it does not clear the tracking gate. Cleanup removes only that owned lock. A retained or conflicting lock requires process/effect reconciliation before another operation.
 
 This exception permits no credential/config/ignore files, branch/ref changes, setup copies, document/product edits or commits before complete association readback. Keep drafts outside the target repository and use existing or externally protected transient authentication. Other clients do not acquire a general pre-write exception.
 
@@ -27,7 +27,7 @@ The predefined `DOCS-*` IDs are separate from product implementation `T-*` IDs. 
 | DOCS-004 | DECOMPOSITION: first approval | sdd-design |
 | DOCS-005 | SPEC: required QC and first approval | sdd-specify |
 | DOCS-006 | PLAN: strategy QC and first approval | sdd-plan |
-| DOCS-007 | layout: combined PLAN/layout QC and separate first approval | sdd-plan |
+| DOCS-007 | layout: combined PLAN/layout QC and first approval | sdd-plan |
 | DOCS-008 | TASKS: required QC and first approval | sdd-tasks |
 | DOCS-009 | Whole documentation package QC and report | sdd-verify; sdd-manage coordinates repairs/persistence |
 

@@ -74,7 +74,7 @@
       "depends_on": ["DOCS-005"],
       "prerequisites": "The accepted specification, required SPEC QC and DOCS-005 publication/issue closure are established.",
       "scope": "Define delivery phases, milestones, dependencies and exit conditions against SPEC. Each phase delivers a bounded useful functionality increment, starting with the simplest reasonable MVP; release or version scope does not make every requested capability part of the first phase. Retain PLAN strategy QC evidence.",
-      "acceptance": "Pass PLAN strategy QC and obtain its separate human first approval or apply explicit scoped preapproval. Submit the approved PLAN state, review evidence, decision and checked DOCS-006 together; push and verify containment before closing this issue or advancing to layout.",
+      "acceptance": "Pass PLAN strategy QC and obtain human first approval or apply explicit scoped preapproval. Submit the approved PLAN state, review evidence, decision and checked DOCS-006 together; push and verify containment before closing this issue or advancing to layout.",
       "sources": ["Running SDD Manager package: assets/DOCS_TASKS_TEMPLATE.md", "Running SDD Manager package: skills/sdd-plan/SKILL.md", "Running SDD Manager package: skills/sdd-manage/references/document-qc-gates.md"]
     },
     {
@@ -85,7 +85,7 @@
       "depends_on": ["DOCS-006"],
       "prerequisites": "The accepted PLAN, its strategy QC and DOCS-006 publication/issue closure are established.",
       "scope": "Allocate source, tests, documentation and artifacts to physical paths consistently with the accepted design and PLAN. Review PLAN and layout together and update the PLAN review report.",
-      "acceptance": "Pass combined PLAN/layout QC, then obtain layout's separate human first approval or apply explicit scoped preapproval. Submit the approved layout state, updated QC evidence, decision and checked DOCS-007 together; push and verify containment before closing this issue or advancing.",
+      "acceptance": "Pass combined PLAN/layout QC, then obtain human first approval or apply explicit scoped preapproval. Submit the approved layout state, updated QC evidence, decision and checked DOCS-007 together; push and verify containment before closing this issue or advancing.",
       "sources": ["Running SDD Manager package: assets/DOCS_TASKS_TEMPLATE.md", "Running SDD Manager package: skills/sdd-plan/SKILL.md", "Running SDD Manager package: skills/sdd-manage/references/document-qc-gates.md"]
     },
     {

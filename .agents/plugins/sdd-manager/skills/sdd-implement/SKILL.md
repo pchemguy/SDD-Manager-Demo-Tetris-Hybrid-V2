@@ -19,17 +19,10 @@ Apply the coordinator's [scope checks and reporting detail](../sdd-manage/refere
 | Resolve next task, next N tasks, milestone, or phase requests | [range selection](references/range-selection.md) |
 | Establish tracking decision and phase readiness before task execution, including direct calls/resume | **sdd-manage**: [tracking decision](../sdd-manage/references/tracking-decision.md) and [phase activation](../sdd-manage/references/phase-activation.md) |
 | Investigate installation, provisioning or runtime blockers within the selected scope | [environment recovery](references/environment-recovery.md) |
+| Plan, prepare or assess browser execution: dedicated Chromium/Firefox, normal setup, capability evidence and observed-failure recovery | [browser environment readiness](references/browser-capabilities.md) |
 | Execute tasks with tests, documentation, and verification | [task execution](references/task-execution.md) |
 | Bootstrap disclosure and usage records before the first SDD commit | **sdd-manage**: `skills/sdd-manage/references/repository-bootstrap.md` (bundled dependency) |
 | Mark completion, commit and push, reconcile issues, and stop | [completion and checkpoints](references/completion-and-checkpoints.md) |
-
-### Supporting modules
-
-For browser environment investigation, load the parent below before its support module; the parent supplies scope and recovery prerequisites. Load only relevant guidance. Ordinary browser check selection remains with `sdd-verify`; CLI/engine-only tasks acquire no browser prerequisites.
-
-| Module | Purpose and boundary | Route through | Load when |
-| --- | --- | --- | --- |
-| [browser-capabilities.md](references/browser-capabilities.md) | Capability evidence for browser provisioning, sessions and rendering; conditional environment support | [environment-recovery.md](references/environment-recovery.md) | Investigating browser installation, session or rendering blockers, or insufficient capability evidence |
 
 ## Implementation protocol
 

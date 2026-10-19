@@ -1,6 +1,8 @@
 /**
  * Optional bounded GitHub tracking projection, not phase activation authority.
- * Node >=22 and native Git. Explicit JSON/root/remote; --check previews authored
+ * Node >=22 and native Git. Explicit root; remote defaults to origin. docs-main
+ * builds its fixed request in memory unless --request is supplied. Phase uses
+ * reviewed JSON. --check previews authored
  * payloads without credentials/API. --apply creates absent managed objects and
  * reuses exact matches; --reconcile-only never writes hosted state. No editing,
  * closing, reopening, deletion, implicit output file or mutation replay.
@@ -8,10 +10,10 @@
  */
 import { createHash } from 'node:crypto';
 import { ForgeError, GitHubTransport, fail, text, positive, phaseLabelsMatch } from './github-client.mjs';
-import { createContext, inspectSource, requestFile, acquireLock, protectedToken, containsCredential, failure, isMain } from './forge-runtime.mjs';
-import { parseOwner, validateProjection, renderProjection } from './projection-input.mjs';
+import { createContext, inspectSource, inspectDocsSource, requestFile, acquireLock, protectedToken, containsCredential, failure, isMain } from './forge-runtime.mjs';
+import { parseOwner, draftProjection, validateProjection, renderProjection } from './projection-input.mjs';
 
-const USAGE = 'phase|docs-main --repo PATH --remote NAME --request FILE (--check|--apply|--reconcile-only) [--token-file gh.tkn] [--timeout-ms 120000] [--request-timeout-ms 15000]';
+const USAGE = 'phase|docs-main --repo PATH [--remote origin] [--request FILE] [--tasks FILE] (--check|--apply|--reconcile-only) [--confirm-eligibility] [--token-file gh.tkn] [--timeout-ms 120000] [--request-timeout-ms 15000]\nphase requires --request. docs-main without --request uses docs/dev/DOCS_TASKS.md (bundled template when absent); --apply then requires --confirm-eligibility.';
 export { ForgeError };
 
 /**
@@ -23,18 +25,25 @@ export { ForgeError };
 export function parseCli(args) {
   if (args.length === 1 && ['--help', '-h'].includes(args[0])) return { help: true };
   if (!['phase', 'docs-main'].includes(args[0])) fail('invalid_operation');
-  const result = { kind: args[0], timeoutMs: 120000, requestTimeoutMs: 15000, tokenFile: 'gh.tkn' }, seen = new Set();
-  const names = { '--repo': 'repo', '--remote': 'remote', '--request': 'requestFile', '--token-file': 'tokenFile', '--timeout-ms': 'timeoutMs', '--request-timeout-ms': 'requestTimeoutMs' };
+  const result = { kind: args[0], remote: 'origin', timeoutMs: 120000, requestTimeoutMs: 15000, tokenFile: 'gh.tkn' }, seen = new Set();
+  const names = { '--repo': 'repo', '--remote': 'remote', '--request': 'requestFile', '--tasks': 'tasks', '--token-file': 'tokenFile', '--timeout-ms': 'timeoutMs', '--request-timeout-ms': 'requestTimeoutMs' };
   for (let i = 1; i < args.length; i++) {
     if (['--check', '--apply', '--reconcile-only'].includes(args[i])) {
       if (result.mode) fail('invalid_execution_mode'); result.mode = args[i].slice(2); continue;
+    }
+    if (args[i] === '--confirm-eligibility') {
+      if (result.confirmEligibility) fail('invalid_arguments');
+      result.confirmEligibility = true; continue;
     }
     const name = names[args[i]], value = args[++i];
     if (!name || seen.has(name) || !text(value, 4096) || value.startsWith('--')) fail('invalid_arguments');
     seen.add(name); result[name] = value;
   }
-  if (!result.mode || !result.repo || !result.remote || !result.requestFile
+  if (!result.mode || !result.repo || !result.remote || (result.kind === 'phase' && !result.requestFile)
       || !/^[a-zA-Z0-9][a-zA-Z0-9_.-]*$/.test(result.remote)) fail('missing_scope');
+  if ((result.tasks && (result.kind !== 'docs-main' || result.requestFile))
+      || (result.confirmEligibility && (result.kind !== 'docs-main' || result.requestFile || result.mode !== 'apply'))) fail('invalid_arguments');
+  if (result.mode === 'apply' && !result.requestFile && !result.confirmEligibility) fail('eligibility_not_established');
   for (const [key, min, max] of [['timeoutMs', 1000, 300000], ['requestTimeoutMs', 100, 60000]]) {
     if (!/^\d+$/.test(String(result[key])) || Number(result[key]) < min || Number(result[key]) > max) fail('invalid_timeout');
     result[key] = Number(result[key]);
@@ -211,14 +220,23 @@ export async function reconcileProjection(input, inventory, client, { reconcileO
 export async function run(options, { fetchImpl } = {}) {
   if (Number(process.versions.node.split('.')[0]) < 22) fail('node_22_required');
   const started = performance.now();
-  const parsed = parseCli([options.kind, '--repo', options.repo, '--remote', options.remote, '--request', options.requestFile,
+  if (options.confirmEligibility !== undefined && typeof options.confirmEligibility !== 'boolean') fail('invalid_arguments');
+  const parsed = parseCli([options.kind, '--repo', options.repo, '--remote', options.remote ?? 'origin',
+    ...(options.requestFile !== undefined ? ['--request', options.requestFile] : []),
+    ...(options.tasks !== undefined ? ['--tasks', options.tasks] : []),
+    ...(options.confirmEligibility ? ['--confirm-eligibility'] : []),
     '--' + options.mode, '--token-file', options.tokenFile || 'gh.tkn', '--timeout-ms', String(options.timeoutMs ?? 120000),
     '--request-timeout-ms', String(options.requestTimeoutMs ?? 15000)]);
-  const input = requestFile(parsed.requestFile);
-  if (input?.kind !== parsed.kind) fail('operation_mismatch');
-  const context = createContext(parsed, input.repository, started);
-  const inspected = inspectSource(context, input.source, { committed: parsed.mode !== 'check' });
-  const inventory = parseOwner(inspected.content, parsed.kind, input.phase?.id);
+  let input = parsed.requestFile ? requestFile(parsed.requestFile) : undefined;
+  if (parsed.requestFile && input?.kind !== parsed.kind) fail('operation_mismatch');
+  const context = createContext(parsed, input?.repository, started);
+  const requirements = { committed: parsed.mode !== 'check' };
+  const inspected = input ? inspectSource(context, input.source, requirements) : inspectDocsSource(context, parsed.tasks, requirements);
+  const inventory = parseOwner(inspected.content, parsed.kind, input?.phase?.id);
+  if (!input) {
+    input = draftProjection(context.repository, inspected.source, inventory);
+    if (parsed.confirmEligibility) Object.keys(input.eligibility).forEach(key => { input.eligibility[key] = true; });
+  }
   const request = validateProjection(input, inventory, parsed.mode === 'apply');
   const digest = createHash('sha256').update(JSON.stringify(request)).digest('hex');
   if (parsed.mode === 'check') return {

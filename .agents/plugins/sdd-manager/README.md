@@ -34,15 +34,15 @@ pause without merging. Integrate only an eligible complete boundary.
 
 Use your actual task/milestone IDs. You can enter a later stage when its inputs are established. Fresh/resumed main preparation starts with the [tracked documentation procedure](skills/sdd-manage/references/main-preparation.md) below. Other adoption follows [repository bootstrap](skills/sdd-manage/references/repository-bootstrap.md).
 
-Hosting is optional for local work. Use existing shell/API authentication; credential failures follow [credential recovery](skills/sdd-manage/references/credentials.md), using ignored protected token storage. Git and API access are separate. The [GitHub backend](skills/sdd-forge/references/github.md) defines the scoped permission profile; Actions access is conditional on requested workflow operations. Supplying credentials does not accept documents or widen the work scope.
+Hosting is optional for local work. HTTPS Git publication uses the [supervised entry](skills/sdd-manage/scripts/git-auth-recover.md) from the first attempt, selecting an eligible supplied token before inherited helpers. An available [GitHub CLI](skills/sdd-forge/references/github.md#github-cli) may handle supported GitHub operations with suitable existing authentication or a provided/saved token. API clients use their available authentication; credential failures follow [credential recovery](skills/sdd-manage/references/credentials.md), using ignored protected token storage. Git and API access are separate. The [GitHub backend](skills/sdd-forge/references/github.md) defines the scoped permission profile; Actions access is conditional on requested workflow operations. Supplying credentials does not accept documents or widen the work scope.
 
 For eligible completed GitHub implementation task/milestone reconciliation, the optional [completion utility](skills/sdd-forge/scripts/forge-close.md) provides bounded lookup, evidence reconciliation, closure and readback. It requires Node 22+, Git and protected local input; workflow owners retain actual acceptance/publication gates. Other SDD workflows do not require Node.
 
-For selected GitHub phase or main-preparation projection, the optional [projection utility](skills/sdd-forge/scripts/forge-project.md) accepts explicit reviewed JSON. Its [local draft/input workflow](skills/sdd-forge/scripts/forge-project-input.md) extracts phase task structure for agent-authored dependencies/briefs, or binds complete predefined documentation content. It previews outgoing content, creates/reuses exact objects and verifies associations; the coordinator retains eligibility decisions. The same optional Node/Git requirements apply.
+For selected GitHub phase or main-preparation projection, the optional [projection utility](skills/sdd-forge/scripts/forge-project.md) supports single-call docs-main operation without an intermediate JSON file, using the existing DOCS_TASKS document and origin by default; initial preparation uses the bundled task template before that document exists. Phase projection retains explicit reviewed JSON. Its [local draft/input workflow](skills/sdd-forge/scripts/forge-project-input.md) extracts phase task structure for agent-authored dependencies/briefs or produces an explicit documentation request when needed. It previews outgoing content, creates/reuses exact objects and verifies associations; the coordinator retains eligibility decisions. The same optional Node/Git requirements apply.
 
 ## Core development workflows
 
-At workflow startup the agent identifies the actual execution OS and checks shell readiness on Windows. If a tool's PowerShell launcher fails, the [Windows recovery workflow](skills/sdd-manage/references/windows-shell-recovery.md) can deploy the supplied CMD adapter for a compatible invocation, then retry. Successful activation is reported with the reminder that every single quote becomes a double quote; a failed retry is reported and ends the turn. The probe applies across Windows clients, including local Codex; actual launcher compatibility is checked rather than inferred from the client name.
+The [Windows shell policy](skills/sdd-manage/references/windows-shell.md) defaults to CMD-compatible commands, unavailable PowerShell/pwsh and one command per shell call, using separate calls or a temporary CMD script for sequences. Script text, even a one-liner, goes in a temporary script file or the complete call in a temporary CMD file; the shell tool receives the file invocation. Pipes, redirection and other shell operations require the complete call in a temporary CMD file. A project that specifically targets PowerShell or defines explicit project-specific shell policies overrides the corresponding defaults. The agent first probes the actual shell tool. A PowerShell-related error triggers recovery with the bundled CMD shim, which restores escaped double quotes. The coordinator verifies retry and reports activation; unresolved failure ends the turn.
 
 | Workflow | Purpose and typical path |
 | --- | --- |
@@ -109,7 +109,7 @@ PROJECT.md turns the seed and clarified decisions into shared project context, w
 
 ### Human review
 
-Greenfield preparation walks you through PROJECT, ARCHITECTURE, DECOMPOSITION, SPEC, PLAN, layout and TASKS. Each necessary newly created document gets substantive analysis and its own human acceptance checkpoint before dependent work; PLAN and layout remain separate. Clarification answers, agent QC and standing Git authorization do not accept documents.
+Greenfield preparation walks you through PROJECT, ARCHITECTURE, DECOMPOSITION, SPEC, PLAN, layout and TASKS. Each necessary newly created document gets substantive analysis and its own human acceptance checkpoint before dependent work. Clarification answers, agent QC and standing Git authorization do not accept documents.
 
 Existing or interrupted preparation assesses actual progress and continues using acceptable inputs. Requested interactive reviews come first; important startup issues can prompt concerns. Feature preparation reviews only necessary deltas and reuses sufficient main inputs. See [human document review](skills/sdd-manage/references/human-document-review.md).
 
@@ -143,7 +143,7 @@ These diagrams explain the human-visible paths. [PLUGIN.md](PLUGIN.md#composite-
 
 ### Project preparation
 
-Each authoring node below creates/checks and publishes one necessary proposal before human review (or follows explicit preapproval). First approval is then recorded with the completed DOCS task in its published acceptance commit, followed by issue closure when enabled. Design repeats this checkpoint for PROJECT, ARCHITECTURE and DECOMPOSITION; PLAN and layout have separate checkpoints. Dependent implementation starts only after accepted preparation is integrated, verified and published to the actual default branch.
+Each authoring node below creates/checks and publishes one necessary proposal before human review (or follows explicit preapproval). First approval is then recorded with the completed DOCS task in its published acceptance commit, followed by issue closure when enabled. Design repeats this checkpoint for PROJECT, ARCHITECTURE and DECOMPOSITION. Dependent implementation starts only after accepted preparation is integrated, verified and published to the actual default branch.
 
 ```mermaid
 flowchart TB

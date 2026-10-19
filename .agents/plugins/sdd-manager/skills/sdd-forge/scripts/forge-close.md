@@ -4,9 +4,9 @@ Use `forge-close.mjs` through **sdd-forge** after its [GitHub backend](../refere
 
 ## Runtime and effects
 
-Requires Node.js 22+, native Git and the bundled [protected-token.mjs](../../sdd-manage/scripts/protected-token.mjs), [github-client.mjs](github-client.mjs) and [forge-runtime.mjs](forge-runtime.mjs). Keep these support modules with the executable. Windows uses native SystemRoot/System32 whoami/icacls; Linux uses POSIX ownership/mode checks. No PowerShell, keyring, npm package, configuration repair or installation is involved. Missing facilities block this mechanism.
+Requires Node.js 22+, native Git and the bundled [protected-token.mjs](../../sdd-manage/scripts/protected-token.mjs), [github-client.mjs](github-client.mjs) and [forge-runtime.mjs](forge-runtime.mjs). Keep these support modules with the executable. The token file needs ordinary OS read access on Windows and Linux. No PowerShell, keyring, npm package, configuration repair or installation is involved. Missing facilities block this mechanism.
 
-The CLI reads an explicit request and an already protected ignored/untracked root-relative token, sends authenticated HTTPS requests only to api.github.com for the selected repository and can add one managed evidence comment and close one issue or milestone. It neither creates issues/milestones nor changes titles, associations, other comments, Git refs/configuration or credential stores. Imports/help read no credential and invoke no Git/network operation.
+The CLI reads an explicit request and an eligible ignored/untracked root-relative token, sends authenticated HTTPS requests only to api.github.com for the selected repository and can add one managed evidence comment and close one issue or milestone. It neither creates issues/milestones nor changes titles, associations, other comments, Git refs/configuration or credential stores. Imports/help read no credential and invoke no Git/network operation.
 
 Supported scope is completed implementation task issues and delivery/phase-review milestones. DOCS preparation, retirement, reopening, PR completion, other providers, unexpected membership or other managed-body layouts use the existing backend procedures. Do not adapt those cases by falsifying the handoff.
 
@@ -24,7 +24,7 @@ node "<PLUGIN_ROOT>/skills/sdd-forge/scripts/forge-close.mjs" task --repo "<WORK
 | --repo PATH | Exact eligible Git worktree root; no implicit current-directory root. |
 | --remote NAME | Selected configured remote. Its sole effective push URL must normalize to the request repository. Existing GitHub HTTPS/SSH forms are supported without changing transport. |
 | --request FILE | Explicit UTF-8 JSON file, at most 1 MiB; optional UTF-8 BOM accepted, UTF-16/invalid Unicode rejected. Relative paths resolve from the launch directory. |
-| --token-file PATH | Optional root-relative credential path, default gh.tkn; existing root/file/ignore/untracked/protection eligibility is required. No token value in arguments. |
+| --token-file PATH | Optional root-relative credential path, default gh.tkn; existing root/file/ignore/untracked eligibility is required. No token value in arguments. |
 | --timeout-ms N | Overall elapsed execution budget, default 60000, range 1000–300000 ms. |
 | --request-timeout-ms N | Individual header/body budget, default 15000, range 100–60000 ms, capped by remaining overall time. |
 | --reconcile-only | Inspect/reconcile remotely without POST/PATCH. It still uses a local operation lock. Missing effects return pending. |
@@ -146,4 +146,4 @@ Effects distinguish comment/closure not_attempted, existing, created/changed, ob
 
 The import-safe exports are ForgeError, parseCli, validateRequest, evidenceComment, GitHubClient, reconcileClosure and run. The lower-level client/core take an explicitly authorized protected credential/transport and caller handoff; they do not replace run's native root/token/lock preflight. Use run for normal scoped execution. Dependency injection in source tests substitutes HTTP/clock boundaries; it is not a CLI option for changing API destinations.
 
-Source tests use synthetic credentials/hosted data plus real local Git/filesystem/native protection and a local stalled-response fixture. Native Windows CMD/Linux CI evaluates those contracts. Such results do not establish installed-agent routing, live-provider permissions, arbitrary OS configurations or actual completion in a user's project. The caller consumes the exact outcome under the existing forge lifecycle and retains its own publication/phase gates.
+Source tests use synthetic credentials/hosted data plus real local Git/filesystem/token validation and a local stalled-response fixture. Native Windows CMD/Linux CI evaluates those contracts. Such results do not establish installed-agent routing, live-provider permissions, arbitrary OS configurations or actual completion in a user's project. The caller consumes the exact outcome under the existing forge lifecycle and retains its own publication/phase gates.

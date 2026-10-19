@@ -2,7 +2,7 @@
  * Native local execution boundary shared by forge utilities.
  * Explicit Git root/remote, bounded subprocesses, regular JSON input and
  * common-directory lock ownership; no credential or network import effects.
- * Protected token policy remains owned by sdd-manage/protected-token.mjs.
+ * Token-file validation remains owned by sdd-manage/protected-token.mjs.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -140,9 +140,30 @@ export function inspectSource(context, source, { committed = false } = {}) {
   return { source: { root: source.root, path: source.path, sha256 }, content };
 }
 
-/** Read only an already eligible protected token, consuming remaining budget. */
+/**
+ * Select the existing docs owner, or the package template before it exists.
+ * Only absence of the default path permits bootstrap fallback; an explicit,
+ * malformed, unreadable or dangling source never falls back. No file is made.
+ * @param {object} context Validated native repository context.
+ * @param {string} [tasks] Explicit repository-relative Markdown owner.
+ * @param {object} [options] inspectSource committed-source requirements.
+ * @returns {object} Inspected content and raw-byte source identity.
+ */
+export function inspectDocsSource(context, tasks, options = {}) {
+  const filename = tasks === undefined ? 'docs/dev/DOCS_TASKS.md' : tasks.replaceAll('\\', '/');
+  if (tasks === undefined) {
+    try { fs.lstatSync(path.join(context.repo, filename)); }
+    catch (error) {
+      if (error.code !== 'ENOENT') fail('invalid_source');
+      return inspectSource(context, { root: 'plugin', path: 'assets/DOCS_TASKS_TEMPLATE.md' }, options);
+    }
+  }
+  return inspectSource(context, { root: 'repo', path: filename }, options);
+}
+
+/** Read an eligible repository token through the bounded Git context. */
 export function protectedToken(context, tokenFile) {
-  return readToken(context.repo, tokenFile, context.git, process.platform, { remainingMs: context.remainingMs });
+  return readToken(context.repo, tokenFile, context.git);
 }
 
 /** Native file identity handles Windows case/short-path entry spellings. */

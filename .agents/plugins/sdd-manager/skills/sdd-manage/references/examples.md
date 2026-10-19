@@ -169,7 +169,7 @@ When a commanded amendment is blocked by an unavailable check, report its branch
 
 ## Human document review examples
 
-- “Prepare the whole greenfield project through TASKS”: create/QC/persist PROJECT, present substantive analysis and pause. Acceptance permits the authorized ARCHITECTURE step; repeat at each necessary root, with SPEC before PLAN and separate PLAN/layout checkpoints.
+- “Prepare the whole greenfield project through TASKS”: create/QC/persist PROJECT, present substantive analysis and pause. Acceptance permits the authorized ARCHITECTURE step; repeat at each necessary root in dependency order.
 - “Continue preparation; PROJECT through SPEC already exist”: orient and assess actual progress, reuse acceptable inputs, then create PLAN and pause at its new-document review. Do not replay existing documents unless requested or actually pending.
 - “Review the existing architecture with me, then continue”: begin with concise structural analysis and resolve that selected interactive review before dependent work.
 - Startup finds contradictory feature contracts: explain the concern and offer interactive review; an unselected offer is not interactive mode, and declining cannot clear the contract blocker.
