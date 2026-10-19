@@ -25,7 +25,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-003 — Prepare and accept ARCHITECTURE.
     - Define major system blocks, relationships, dependency direction and consequential structural decisions from the accepted brief.
     - Review the proposal with the human and complete its acceptance checkpoint.
-- [ ] DOCS-004 — Prepare and accept DECOMPOSITION.
+- [x] DOCS-004 — Prepare and accept DECOMPOSITION.
     - Define component responsibilities, collaboration, ownership and design-level interface boundaries consistently with ARCHITECTURE.
     - Review the proposal with the human and complete its acceptance checkpoint.
 - [ ] DOCS-005 — Prepare and accept SPEC.
@@ -107,3 +107,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Owner review checked coverage of classic and modern mechanics, single session-state ownership, shared landing calculations, acyclic dependencies, explicit adapter boundaries, snapshot isolation and clear deferral of exact rules to SPEC. No physical layout, delivery order or task checklist was introduced.
 - Document checks verified local links, heading separation, whitespace, unchanged accepted PROJECT/ARCHITECTURE bytes and DOCS-004's pending approval state. No game code or product tests were created or run.
 - First human approval is pending. DOCS-004 remains unchecked and issue #4 remains open. Do not begin SPEC until the presented DECOMPOSITION is accepted.
+
+### DOCS-004 first approval — 2026-10-19
+
+- Human decision: “ok” in response to the DECOMPOSITION review checkpoint. Accepted proposal commit: `3948e92ee152d1941aacf2d644927d28e779fc03`; accepted DECOMPOSITION blob: `5d7b6f56fab0ea2560a3ab75316421aead22db81`. Retain the reviewed bytes unchanged.
+- Approval covers component responsibilities, state/resource ownership, provisional interfaces, collaboration and verification boundaries. Exact gameplay contracts were explicitly deferred to SPEC.
+- DOCS-004 is complete. Publish/read back this approval commit, then close/read back issue #4 before SPEC authoring. SPEC has a separate human checkpoint; its consequential gameplay decisions must be resolved before relying on them. No implementation range is selected.
