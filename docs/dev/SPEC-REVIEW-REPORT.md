@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Ready for human SPEC review**, with no unresolved technical QC finding. Human first approval remains pending; PLAN authoring is held. This conclusion applies to the proposed specification, not an implemented game.
+State: **Ready for dependent PLAN authoring**, subject to publication/tracking prerequisites, with no unresolved technical QC finding. Human first approval is recorded in DOCS_TASKS for proposal commit `11089cfc408648a3256df9b51713d5080fa6b9b6`. This conclusion concerns the accepted specification, not an implemented game.
 
 Reviewed scope: [SPEC](SPEC.md), [game rules](spec/game-rules.md) and [browser session](spec/browser-session.md). The final reviewed SHA-256 identities appear in Revision 1. The report itself is not included in those hashes.
 
@@ -73,3 +73,7 @@ Rechecks performed:
 - Reviewed the acceptance routes for every coverage group. No confirmed technical blocker remains; no technical exception is being used.
 
 Final technical gate: Ready for the proposed scope. Human first approval remains pending and is required before PLAN. The controls, bounded non-SRS kicks, exact timer-reset rules, scoring, browser interruption/repeat behavior and API contracts must be visible in that review. No playable implementation, browser execution, performance measurement or production build is claimed.
+
+## Human acceptance update
+
+The user accepted the complete SPEC package with “k” at its review checkpoint on 2026-10-19. DOCS_TASKS owns the decision and checked task. SPEC and both child content hashes remain unchanged, so this acceptance metadata update does not invalidate Revision 1's technical assessment. Its original pending-review observations remain historical. Publication and issue closure must be verified before dependent PLAN authoring.

@@ -28,7 +28,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-004 — Prepare and accept DECOMPOSITION.
     - Define component responsibilities, collaboration, ownership and design-level interface boundaries consistently with ARCHITECTURE.
     - Review the proposal with the human and complete its acceptance checkpoint.
-- [ ] DOCS-005 — Prepare and accept SPEC.
+- [x] DOCS-005 — Prepare and accept SPEC.
     - Specify observable behavior, interfaces, error contracts, required qualities and acceptance conditions from the accepted design.
     - Complete required SPEC QC and its human acceptance checkpoint.
 - [ ] DOCS-006 — Prepare and accept PLAN.
@@ -121,3 +121,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Proposed SPEC and its game/browser children define the complete first-version behavior. Timer-reset details, bounded non-SRS kicks, controls, scoring, repeat/focus/stall rules and engine contracts are presented for confirmation at the SPEC checkpoint. They are not claimed to be previously approved requirements.
 - Keep DOCS-005 unchecked and issue #5 open until required SPEC/design QC and first human approval are established. PLAN authoring remains held.
 - Completed SPEC/design QC in [SPEC-REVIEW-REPORT.md](SPEC-REVIEW-REPORT.md), retaining three initial findings and Revision 1 corrections/rechecks with exact source identities. Technical gate is Ready for the proposed scope; first human approval remains pending. Source/link/style and inline specification-data sanity checks are document evidence, not gameplay tests.
+
+### DOCS-005 first approval — 2026-10-19
+
+- Human decision: “k” in response to the SPEC checkpoint. Accepted proposal commit: `11089cfc408648a3256df9b51713d5080fa6b9b6`, covering SPEC, both game/browser children and its retained QC report. This accepts the detailed rules presented there, including bounded non-SRS kicks, controls, scoring, lock-timer reset behavior and browser session contracts.
+- Retain the reviewed SPEC and child bytes unchanged. The reviewed SHA-256 identities remain those in SPEC-REVIEW-REPORT Revision 1; technical QC has no unresolved finding. Update the report's current human-decision metadata without changing its technical review history.
+- DOCS-005 is complete. Publish/read back this approval commit, then close/read back issue #5 before PLAN authoring. PLAN and layout retain separate checkpoints; TASKS and implementation are not yet authorized for execution.
