@@ -155,3 +155,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Human decision: “k” in response to the layout checkpoint. Accepted proposal commit: `4fbe44823bfe6a8affef2f2e9060b7bc25fc896e`; accepted layout blob: `f25d287fda2c1a7fe1795e66da50bf1df97efdd6`. Retain the reviewed layout bytes unchanged.
 - Approval covers physical source/test/configuration/documentation/generated-output ownership, dependency and type boundaries, and proposed tooling. Combined PLAN/layout QC has no unresolved finding; tool installation and product checks remain unperformed.
 - DOCS-007 is complete. Publish/read back this approval commit, then close/read back issue #7 before TASKS derivation. TASKS first approval and whole-package QC remain required; no implementation range is selected.
+
+### DOCS-008 TASKS proposal — 2026-10-19
+
+- Layout approval was published in `1a55d0570e4a84fbf5f2d921c2563c26e8fb01df`, with exact remote branch readback; issue #7 was closed and read back as completed before TASKS derivation.
+- Proposed TASKS preserves PLAN's two phases/seven milestones, deriving 32 unchecked tasks with owned scope, dependencies, contracts and future verification evidence. It includes five milestone-review tasks and two single-task phase-review milestones; final review owns complete implementation/TODO reporting.
+- DOCS-008 and issue #8 remain incomplete pending first human TASKS approval. Conformance QC passed with TASKS-QC-001 corrected and rechecked; TASKS-REVIEW-REPORT retains source identities, coverage/count assessments and evidence. TASKS SHA-256: `086b8c5c763edd5433ae2244bebecff18c3f75d430ffc3880c0f45543938c639`. Implementation objects are not projected; whole-package QC and verified documentation integration still precede executable range selection.
