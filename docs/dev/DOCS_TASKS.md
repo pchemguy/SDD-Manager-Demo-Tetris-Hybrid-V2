@@ -19,7 +19,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
     - Record which root files existed and which were copied; verify copied bytes and preserved content.
     - Establish/reconcile `docs/dev/HANDOFF.md` as generated checkpoint metadata, outside the four-file presence/copy test. Include it with this task's completion and initialization result, push and verify; then close and verify its issue when tracking is enabled.
     - Report initialization. If some but not all of the four root files existed initially, warn with the retained/copied filenames and end the turn before document work, unless the user explicitly preapproved continuation through this checkpoint. If none or all existed, continue without an additional approval pause.
-- [ ] DOCS-002 — Prepare and accept PROJECT.
+- [x] DOCS-002 — Prepare and accept PROJECT.
     - Establish the project brief: purpose, users, outcomes, scope, non-goals and consequential constraints; identify material assumptions and unresolved decisions.
     - Review the proposal with the human and complete its acceptance checkpoint.
 - [ ] DOCS-003 — Prepare and accept ARCHITECTURE.
@@ -78,3 +78,10 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Owner review checked the brief against the user request and clarification, first-version feature coverage, explicit proposed defaults, document boundaries and unresolved rule decisions. No game behavior has been implemented or tested.
 - First human approval is pending. DOCS-002 remains unchecked and issue #2 remains open. Do not begin ARCHITECTURE until the presented PROJECT state is accepted.
 - Publication recovery for initialization found that Git supplies `GIT_DIR` to credential helpers, which the bundled helper rejects. A temporary external wrapper removed inherited repository-location variables before invoking the same protected helper; push and exact remote readback succeeded. Repository plugin files were not modified.
+
+### DOCS-002 first approval — 2026-10-19
+
+- Human decision: “approval of new PROJECT.” This accepts the complete PROJECT proposal, including its product defaults, presented at commit `1cdfb44c0eff8a6183a818ec1484da7310ad69cd`.
+- Accepted PROJECT blob: `55aa3d452b2efeedf8f77239a4f73f0109984885`. Retain the reviewed document bytes unchanged in this approval commit; its proposal wording identifies the presented artifact, while this record establishes first approval.
+- Confirmed the remote design-docs/main ref matched the proposal commit during the read-only diagnostics. Owner checks for scope, feature coverage, document boundaries, heading spacing and local links were recorded with the proposal.
+- DOCS-002 is complete. Publish/read back this approval commit, then close/read back issue #2 before ARCHITECTURE authoring. Architecture has its own human checkpoint; future documents and implementation remain unapproved.
