@@ -31,7 +31,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-005 — Prepare and accept SPEC.
     - Specify observable behavior, interfaces, error contracts, required qualities and acceptance conditions from the accepted design.
     - Complete required SPEC QC and its human acceptance checkpoint.
-- [ ] DOCS-006 — Prepare and accept PLAN.
+- [x] DOCS-006 — Prepare and accept PLAN.
     - Define delivery phases, milestones, dependencies and exit conditions against SPEC.
     - Complete PLAN QC, then present PLAN for human approval.
 - [ ] DOCS-007 — Prepare and accept layout.
@@ -134,3 +134,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Proposed PLAN delivers a usable classic game in P1 and the remaining modern placement/hold behavior in P2, with explicit scoped coverage and complete first-version acceptance. It reserves milestone reviews and one dedicated final review milestone per phase.
 - PLAN first approval remains pending. DOCS-006 stays unchecked and issue #6 open. Do not create layout until PLAN is accepted; combined PLAN/layout QC and separate layout approval remain required before TASKS.
 - Completed strategy-only QC in [PLAN-REVIEW-REPORT.md](PLAN-REVIEW-REPORT.md). Retained two initial findings and Revision 1 corrections, exact source identities, full contract routes and 3/2 delivery-milestone count assessment with separate phase-review milestones. No technical strategy blocker remains; physical layout and TASKS readiness are pending.
+
+### DOCS-006 first approval — 2026-10-19
+
+- Human decision: “k” in response to the PLAN checkpoint. Accepted proposal commit: `d065dd8ad1b9363e85ff25d2d18450eb611dc2be`; accepted PLAN blob: `0396bf53db6968bb4303a857e71a0ca46e716505`. Retain the reviewed strategy bytes unchanged.
+- Acceptance covers the two-phase first-version strategy, stable phase/milestone identities, delivery/review boundaries, dependencies and exits. PLAN-REVIEW-REPORT retains strategy QC with no unresolved finding; layout/placement coverage is still pending.
+- DOCS-006 is complete. Publish/read back this approval commit, then close/read back issue #6 before layout authoring. Combined PLAN/layout QC and separate layout first approval are required before TASKS.

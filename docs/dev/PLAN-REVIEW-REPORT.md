@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Ready for strategy-only human PLAN review**. No confirmed strategy finding remains unresolved. PLAN first approval is pending. Layout has not been authored or reviewed; combined PLAN/layout readiness and separate layout approval remain prerequisites for TASKS. This report does not authorize implementation or hosted implementation projection.
+State: **Ready for dependent layout authoring**, subject to publication/tracking prerequisites. No confirmed strategy finding remains unresolved. PLAN first approval is recorded in DOCS_TASKS for proposal commit `d065dd8ad1b9363e85ff25d2d18450eb611dc2be`. Layout has not been authored or reviewed; combined PLAN/layout readiness and separate layout approval remain prerequisites for TASKS. This report does not authorize implementation or hosted implementation projection.
 
 Reviewed root: [PLAN](PLAN.md). Final reviewed SHA-256: `9123ceca5a3720db44a174b3e9a07fe6a0ebc8d027ccb8939edb52ea10c44e4a`. No focused PLAN children or existing layout are in scope.
 
@@ -75,3 +75,7 @@ Final root SHA-256: `9123ceca5a3720db44a174b3e9a07fe6a0ebc8d027ccb8939edb52ea10c
 Rechecks cover the full contract coverage table, 3/2 delivery counts with separate 1/1 phase reviews, explicit review/dependency/closure order, initial usable baseline versus full-version scope, scoped browser/error/build/documentation evidence and preserved exact SPEC source identities. Local links, heading separation, whitespace, placeholder absence and milestone identity/count checks are verified before persistence with this report.
 
 No unresolved confirmed strategy finding or exception remains. Technical strategy gate: Ready for human PLAN review. Layout remains absent, combined placement coverage is pending, TASKS readiness remains blocked and PLAN acceptance is not supplied by this report. Append the later layout review as another revision rather than replacing these observations.
+
+## PLAN human acceptance update
+
+The user accepted PLAN with “k” at its separate review checkpoint on 2026-10-19. DOCS_TASKS owns the first approval and checked task. PLAN content and governing SPEC/design identities are unchanged, so Revision 1's strategy assessment remains current. Layout and its human checkpoint remain distinct; no placement readiness is inferred from strategy acceptance.
