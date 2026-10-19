@@ -1,0 +1,40 @@
+# Establish Windows shell readiness
+
+Use at workflow startup on Windows, or when a changed shell tool/host produces a PowerShell-related probe failure. The coordinator owns recovery; **sdd-orient** observes OS/tool/probe evidence read-only. This is a shell-launch prerequisite shared by preparation, implementation and independent operations. Runtime/dependency provisioning retains [environment recovery](coordination.md#coordinate-environment-recovery).
+
+## Identify the host and probe
+
+1. Identify the OS of the host actually executing shell commands from current environment/tool metadata or another available read-only facility. Separate it from the user's desktop and product deployment platform. Report unknown OS rather than infer Windows from a client name or repository path. Reuse sufficient evidence for the same host/tool session; refresh after a material host/tool change or a relevant failure.
+2. On Windows, run a short bounded harmless probe through the tool that will execute workflow commands, before dependent shell/Git operations. Select CMD syntax and an observable result, for example `cmd /d /c echo SDD_CMD_PROBE_%SystemDrive%`. Require the marker, expanded drive and successful exit; literal `%SystemDrive%` is not a pass. The human's `echo %PATH%` or `cmd /c dir %SystemDrive%` examples are illustrative, not a required complete PATH dump or a fixed drive. Retain only useful evidence in ordinary reports.
+3. A successful probe establishes that narrow shell capability; continue the existing workflow. Non-Windows hosts do not acquire this shim or Windows probes. Do not restart unchanged workflow orientation on every command.
+4. On probe failure, retain the actual tool, command, timeout/exit and sanitized error. Missing PowerShell or another PowerShell launcher/execution error enters the recovery below. A genuine command/product error or a host authorization denial retains its owning diagnosis; a shim is not a way around that denial. Orientation returns these observations to **sdd-manage** without writing files or declaring Git readiness from unavailable checks.
+
+## Establish the adapter contract
+
+The bundled [PowerShell.cmd](../scripts/PowerShell.cmd) targets this observed invocation, supplied from Antigravity run_command tests:
+
+```text
+PowerShell -Command "<USER COMMAND>"
+```
+
+Here `%~2` is the single command-string argument. The script uses `set "CLI=%~2"` followed by `set "CLI=%CLI:'="%"` to replace every single quote with a double quote, then dispatches that command through CMD. Generate CMD-compatible commands after activation. Literal apostrophes also change; this transformation is part of the adapter contract. Quote conversion can change quoted-redirection parsing, so general redirection preservation is not established by the basic readiness probe.
+
+Startup detection is client-neutral, including local Codex and other Windows clients. Establish the actual launcher/argument behavior from available current evidence rather than assume compatibility from branding. The Antigravity call shape is confirmed human evidence; similar historical local Codex failures do not establish its current invocation. Additional flags, encoded commands, file-mode execution and PowerShell-specific command syntax are outside this adapter's contract.
+
+A batch file must actually be discoverable/executable by the launcher. A PATH copy does not replace an absolute powershell.exe path or a process launcher that insists on an executable rather than a CMD wrapper. Apply the compatible shim below and verify it through the same tool/invocation; do not manufacture evidence of resolution from file presence or change the client's launch configuration. Microsoft's [process creation contract](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessw), [PowerShell command interface](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_powershell_exe?view=powershell-5.1) and [CMD parsing guidance](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/cmd) explain the relevant platform boundaries; they do not prove a particular client's behavior.
+
+## Place, verify and retry
+
+1. Establish the actual intended command/launcher contract and existing repair authority. Routine recovery inside the authorized workflow needs no repeated confirmation. Keep Git/worktree ownership, preparation tracking and explicit read-only/local-only limits intact. Do not install a shim merely because a tool happens to use PowerShell successfully.
+2. Use an available independent filesystem/tool facility if the broken shell cannot create files. Identify an existing writable user directory in the launcher's effective PATH and verify its actual search order. Preserve existing unrelated PowerShell.cmd files, executables and instructions; reuse a matching owned adapter when established. Do not overwrite a functioning PowerShell executable, write system directories, or change global PATH, registry or client configuration for this procedure.
+3. Copy the running/pinned package's PowerShell.cmd to the selected directory through that available facility and verify its bytes. The script requires CMD, not Node or a PowerShell installation. If no compatible writable/discoverable location or independent file facility exists, report that concrete blocker and stop the turn.
+4. A project-root fallback is allowed when the launcher actually searches that root and existing repository mutation gates permit these writes. For enabled main preparation, its pre-write tracking gate still applies; an external PATH location avoids repository writes while establishing shell readiness. Preserve any existing root shim and .gitignore rules. Add `/PowerShell.cmd` to .gitignore when creating this local root adapter; verify the exact path is ignored and not tracked/staged. Do not untrack an existing file, reset user changes or assume the current directory belongs to PATH. Root-local ignore/shim maintenance stays with the coordinator's actual scope and persistence policy.
+5. Repeat the original bounded probe through the same shell tool and invocation. Validate expected output/expansion and exit status, not just file creation or an exit-zero echo of literal text. Do not replay a possibly mutating failed product command as the readiness probe.
+6. On success, inform the user of the effective recovery and shim location, and **explicitly remind them that all single quotes (`'`) are replaced with double quotes (`"`) while this shim is active**. State that commands now use CMD semantics, then continue only the already authorized workflow. This notice is required before dependent work, including when recovering an active shim after context loss; it does not add a confirmation pause.
+7. If the repeated probe still fails, inform the user of the actual attempt, location and remaining error, preserve valid work, and **stop the turn**. Do not keep installing alternatives, silently change shell semantics again or claim success from the copied file. Retain unknown effects as unknown.
+
+For example, a successful activation notice can say: “Windows shell recovery is active through PowerShell.cmd at the verified location. Commands now run under CMD; every single quote (`'`) is converted to a double quote (`"`), including literal apostrophes.” Fill the actual location and observed result; do not present this example as an observed activation.
+
+## Return and continuity
+
+Return host OS, tool/launcher profile, initial/repeated probe results, selected adapter path/ownership, any root ignore change, actual activation state and the quote-conversion notice. Use existing task/campaign evidence and HANDOFF at their normal checkpoints; create no recovery journal or second environment registry. A local ignored shim is not a transferable repository artifact: a fresh checkout must inspect its new host and recover from the bundled template only when needed. Keep source assessment, controlled native CMD tests and actual client activation distinct.
