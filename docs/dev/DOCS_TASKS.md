@@ -34,7 +34,7 @@ The running SDD Manager package's `assets/DOCS_TRACKING_TEMPLATE.json` supplies 
 - [x] DOCS-006 — Prepare and accept PLAN.
     - Define delivery phases, milestones, dependencies and exit conditions against SPEC.
     - Complete PLAN QC, then present PLAN for human approval.
-- [ ] DOCS-007 — Prepare and accept layout.
+- [x] DOCS-007 — Prepare and accept layout.
     - Allocate source, tests, documentation and artifacts to physical paths consistently with the accepted design and PLAN.
     - Review layout against the design and PLAN, update the PLAN review report, then present layout for human approval.
 - [ ] DOCS-008 — Prepare and accept TASKS.
@@ -149,3 +149,9 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - DOCS-007 remains unchecked and issue #7 open pending combined PLAN/layout QC and first human layout approval. Do not derive TASKS until that approval is recorded and published with its issue closure verified.
 
 - Layout combined QC is retained in PLAN-REVIEW-REPORT Revisions 2–3, including two located placement findings and their corrections. Final technical PLAN/layout gate is Ready; first human layout approval remains pending. Source/link/style/ownership checks are document evidence, not product execution.
+
+### DOCS-007 first approval — 2026-10-19
+
+- Human decision: “k” in response to the layout checkpoint. Accepted proposal commit: `4fbe44823bfe6a8affef2f2e9060b7bc25fc896e`; accepted layout blob: `f25d287fda2c1a7fe1795e66da50bf1df97efdd6`. Retain the reviewed layout bytes unchanged.
+- Approval covers physical source/test/configuration/documentation/generated-output ownership, dependency and type boundaries, and proposed tooling. Combined PLAN/layout QC has no unresolved finding; tool installation and product checks remain unperformed.
+- DOCS-007 is complete. Publish/read back this approval commit, then close/read back issue #7 before TASKS derivation. TASKS first approval and whole-package QC remain required; no implementation range is selected.

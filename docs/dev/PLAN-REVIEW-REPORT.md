@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Ready for human layout review** after combined PLAN/layout QC. No confirmed strategy/placement finding remains unresolved. PLAN first approval is recorded in DOCS_TASKS for proposal commit `d065dd8ad1b9363e85ff25d2d18450eb611dc2be`. Layout first approval remains pending; TASKS derivation is held until that separate decision and its publication/issue closure. This report does not authorize implementation or hosted implementation projection.
+State: **Ready for TASKS derivation**, subject to publication/tracking prerequisites, after combined PLAN/layout QC. No confirmed strategy/placement finding remains unresolved. PLAN and layout first approvals are recorded in DOCS_TASKS for their exact presented states. This report does not authorize implementation or hosted implementation projection.
 
 Reviewed roots: [PLAN](PLAN.md), SHA-256 `9123ceca5a3720db44a174b3e9a07fe6a0ebc8d027ccb8939edb52ea10c44e4a`, and [layout](layout.md), final SHA-256 `c5482b42763b84c91141891b773dd8a0dd5f0880cea3d57657b6d7ea1afd8180`. No focused PLAN/layout children are required. Revisions 2–3 retain the new placement assessment; earlier strategy-only observations remain historical.
 
@@ -117,3 +117,7 @@ Final layout SHA-256: `c5482b42763b84c91141891b773dd8a0dd5f0880cea3d57657b6d7ea1
 Rechecks cover every decomposed component and its source/test owner, public/private imports and runtime state isolation, phased integration support, scoped type/config collection, static artifact/credential exclusions, report/doc locations and accurate existing-versus-planned path statements. Local links, Markdown headings/whitespace, accepted-source preservation and the unchanged controlling AGENTS prefix are checked with the complete checkpoint before commit. No scaffolding or empty product path was created.
 
 Final combined technical gate: Ready. LAYOUT-QC-001 and LAYOUT-QC-002 are resolved; original PLAN-QC findings remain resolved. Human layout first approval remains pending and TASKS derivation is held. No exception is used. Product test/build/browser checks remain unrun because this is documentation preparation.
+
+## Layout human acceptance update
+
+The user accepted layout with “k” at its review checkpoint on 2026-10-19. DOCS_TASKS owns the first approval and checked task for proposal commit `4fbe44823bfe6a8affef2f2e9060b7bc25fc896e`. Layout and PLAN content hashes remain unchanged, so the combined technical assessment remains current. Prior pending-review observations are historical. Verify approval publication and issue #7 closure before TASKS derivation.
