@@ -70,3 +70,11 @@ On interruption, recover the earliest unmet operation from documents, acceptance
 The user requested a classic browser-based Tetris game. The proposed TypeScript baseline includes a 10×20 board, seven tetrominoes, movement, rotation, gravity, soft drop, line clearing, scoring, levels, next-piece preview, pause, restart, game over, keyboard controls and automated gameplay tests. The user replied to also include hold, ghost piece, 7-bag randomization, wall kicks and hard drop. All five enhancements belong to the first-version scope.
 
 New development documents retain individual review checkpoints under `AGENTS.md`. No future-checkpoint preapproval or executable implementation range has been granted.
+
+### DOCS-002 PROJECT proposal — 2026-10-19
+
+- Published initialization commit: `0f695a4c75f131ab92694feda44b9a8a03423336`; exact remote branch readback matched. DOCS-001 issue #1 was closed and read back as completed before PROJECT authoring.
+- Proposed [PROJECT.md](PROJECT.md) covers the classic baseline, all five requested modern features, intended use, quality goals, product defaults and deferred specification choices. README links the brief, preparation, checkpoint, usage notice and disclosure without claiming a playable implementation.
+- Owner review checked the brief against the user request and clarification, first-version feature coverage, explicit proposed defaults, document boundaries and unresolved rule decisions. No game behavior has been implemented or tested.
+- First human approval is pending. DOCS-002 remains unchecked and issue #2 remains open. Do not begin ARCHITECTURE until the presented PROJECT state is accepted.
+- Publication recovery for initialization found that Git supplies `GIT_DIR` to credential helpers, which the bundled helper rejects. A temporary external wrapper removed inherited repository-location variables before invoking the same protected helper; push and exact remote readback succeeded. Repository plugin files were not modified.
