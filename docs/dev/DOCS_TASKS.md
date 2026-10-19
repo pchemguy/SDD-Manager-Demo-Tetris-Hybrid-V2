@@ -99,3 +99,11 @@ New development documents retain individual review checkpoints under `AGENTS.md`
 - Human decision: “ok” in response to the ARCHITECTURE review checkpoint. Accepted proposal commit: `49b0de9628493776ac68beba8a7498114807df25`; accepted ARCHITECTURE blob: `6a1722636541517c9ba9454dae1acbb80114173d`. Retain the reviewed bytes unchanged.
 - Acceptance covers the deterministic engine, browser controller, Canvas/HTML presentation and explicit time/randomness boundaries. The published proposal's source and document checks were verified; its remote branch readback matched.
 - DOCS-003 is complete. Publish/read back this approval commit, then close/read back issue #3 before DECOMPOSITION authoring. DECOMPOSITION and later roots retain their individual checkpoints; no implementation range is selected.
+
+### DOCS-004 DECOMPOSITION proposal — 2026-10-19
+
+- ARCHITECTURE approval was published in `a797ebdb223363eb509ac4fea2dcf16e318b8bd9`, with exact remote branch readback. Issue #3 was closed and read back as completed before decomposition authoring.
+- Proposed [DECOMPOSITION.md](DECOMPOSITION.md) refines the accepted three-block architecture into cohesive logical components, state/resource ownership, provisional interfaces, principal collaborations, lifecycle/failure boundaries and verification seams.
+- Owner review checked coverage of classic and modern mechanics, single session-state ownership, shared landing calculations, acyclic dependencies, explicit adapter boundaries, snapshot isolation and clear deferral of exact rules to SPEC. No physical layout, delivery order or task checklist was introduced.
+- Document checks verified local links, heading separation, whitespace, unchanged accepted PROJECT/ARCHITECTURE bytes and DOCS-004's pending approval state. No game code or product tests were created or run.
+- First human approval is pending. DOCS-004 remains unchecked and issue #4 remains open. Do not begin SPEC until the presented DECOMPOSITION is accepted.
