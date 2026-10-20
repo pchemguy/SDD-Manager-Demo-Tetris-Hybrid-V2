@@ -28,7 +28,7 @@ Each executable task closes with its verified result, evidence and initial ownin
             Scope: sequence module, deterministic random helpers and focused engine tests. Depends on: T-002.
             Acceptance: canonical Fisher–Yates bags, six draws per bag, queue refill/selection and one non-consuming preview match G-SEQUENCE. Invalid/throwing random sources cannot publish partially updated sequence state.
             Evidence: controlled stream/bag/draw-count checks, refill boundaries, repeated preview reads and failure preservation. Document supplied-source and reset semantics without browser randomness in the engine.
-        - [ ] T-004 — Establish session actions and detached state projection
+        - [x] T-004 — Establish session actions and detached state projection
             Scope: session facade, transition calculations, snapshot/public exports and focused session tests. Depends on: T-002, T-003.
             Acceptance: ready/start/restart, legal left/right/soft-drop/in-place rotation, spawn/blocked spawn, supported action/time validation and detached classic-state reads are coordinated by one session owner. Modern feature behaviors remain explicitly incomplete under PLAN rather than exposed as working controls.
             Evidence: test-first public lifecycle/action/no-op/input checks, snapshot mutation isolation, no draws on reads and atomic start/spawn failure. Verify import has no browser/setup side effects. Trace S-API/S-DATA/S-DETERMINISM only for the delivered P1 subset.

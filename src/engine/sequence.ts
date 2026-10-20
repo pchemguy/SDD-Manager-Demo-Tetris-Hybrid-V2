@@ -3,14 +3,10 @@
  * Implements G-SEQUENCE requirements.
  */
 
-import type { TetrominoType } from './types.js';
+import type { TetrominoType, RandomSource } from './types.js';
+export type { RandomSource } from './types.js';
 
 export const CANONICAL_BAG: readonly TetrominoType[] = ['I', 'J', 'L', 'O', 'S', 'T', 'Z'];
-
-/**
- * A random number generator producing a float in the half-open interval [0, 1).
- */
-export type RandomSource = () => number;
 
 /**
  * Shuffles the canonical bag using descending Fisher-Yates:

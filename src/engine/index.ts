@@ -8,3 +8,5 @@ export * from './geometry.js';
 export * from './board.js';
 export * from './placement.js';
 export * from './sequence.js';
+export * from './snapshot.js';
+export * from './session.js';

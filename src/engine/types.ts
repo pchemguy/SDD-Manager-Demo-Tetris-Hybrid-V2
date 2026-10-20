@@ -1,5 +1,6 @@
 /**
  * Core engine coordinate, piece, board, and session types.
+ * Matches S-API and S-DATA specifications.
  * Pure data types only: no DOM, Node, or browser dependencies.
  */
 
@@ -26,37 +27,50 @@ export interface ActivePiece {
   readonly cells: readonly Point[];
 }
 
-export type SessionStatus = 'ready' | 'running' | 'paused' | 'game_over';
+export type SessionStatus = 'ready' | 'running' | 'paused' | 'gameOver';
+
+export interface ActivePieceSnapshot {
+  readonly type: TetrominoType;
+  readonly orientation: RotationState;
+  readonly x: number;
+  readonly y: number;
+  readonly cells: readonly [number, number][];
+}
 
 export interface EngineSnapshot {
   readonly status: SessionStatus;
+  readonly board: CellValue[][];
+  readonly active: ActivePieceSnapshot | null;
+  readonly ghostCells: readonly [number, number][];
+  readonly held: TetrominoType | null;
+  readonly next: TetrominoType | null;
+  readonly canHold: boolean;
   readonly score: number;
   readonly lines: number;
   readonly level: number;
-  readonly gravityIntervalMs: number;
-  readonly activePiece: ActivePiece | null;
-  readonly nextPiece: TetrominoType | null;
-  readonly heldPiece: TetrominoType | null;
-  readonly canHold: boolean;
-  readonly ghostCells: readonly Point[];
-  readonly board: BoardGrid;
 }
 
-export type PlayerAction =
-  | 'move_left'
-  | 'move_right'
-  | 'rotate_cw'
-  | 'rotate_ccw'
-  | 'soft_drop'
-  | 'hard_drop'
-  | 'hold'
+export type ActionName =
   | 'start'
+  | 'restart'
   | 'pause'
   | 'resume'
-  | 'restart';
+  | 'moveLeft'
+  | 'moveRight'
+  | 'rotateCW'
+  | 'rotateCCW'
+  | 'softDrop'
+  | 'hardDrop'
+  | 'hold';
 
-export interface GameEngine {
+export interface Session {
+  dispatch(action: string): void;
+  advance(elapsedMs: number): void;
   getSnapshot(): EngineSnapshot;
-  dispatch(action: PlayerAction): boolean;
-  tick(elapsedMs: number): boolean;
+}
+
+export type RandomSource = () => number;
+
+export interface SessionOptions {
+  readonly random: RandomSource;
 }
