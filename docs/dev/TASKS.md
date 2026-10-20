@@ -24,7 +24,7 @@ Each executable task closes with its verified result, evidence and initial ownin
             Scope: engine geometry, placement and legal board-lock primitives plus focused tests; extend central types where required. Depends on: T-001.
             Acceptance: all seven geometries, in-place clockwise/counterclockwise rotation, O no-op, board boundaries/collisions and non-overwriting lock transformations match G-BOARD and the zero-offset P1 subset of G-ROTATE. Nonzero kicks remain scheduled in P2.
             Evidence: test-first geometry/placement/lock checks including all spawn cells, rotation cycles, boundaries and blocked candidates; engine-only type checking. Update module documentation with the ownership/coordinate contract.
-        - [ ] T-003 — Implement deterministic bag and preview supply
+        - [x] T-003 — Implement deterministic bag and preview supply
             Scope: sequence module, deterministic random helpers and focused engine tests. Depends on: T-002.
             Acceptance: canonical Fisher–Yates bags, six draws per bag, queue refill/selection and one non-consuming preview match G-SEQUENCE. Invalid/throwing random sources cannot publish partially updated sequence state.
             Evidence: controlled stream/bag/draw-count checks, refill boundaries, repeated preview reads and failure preservation. Document supplied-source and reset semantics without browser randomness in the engine.

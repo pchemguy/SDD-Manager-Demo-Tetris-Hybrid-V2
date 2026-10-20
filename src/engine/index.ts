@@ -7,3 +7,4 @@ export * from './types.js';
 export * from './geometry.js';
 export * from './board.js';
 export * from './placement.js';
+export * from './sequence.js';
