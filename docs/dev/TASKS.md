@@ -36,7 +36,7 @@ Each executable task closes with its verified result, evidence and initial ownin
             Scope: session/transition timing and locked-board integration plus engine tests. Depends on: T-004.
             Acceptance: normal gravity, full G after landing, grounded-deadline preservation, airborne reset, chronological lock/spawn and remaining-time processing follow G-TIME. Failed downward requests do not lock immediately.
             Evidence: just-before/at-deadline and partitioned-time checks, movement around support edges, level-1 timing, invalid elapsed input and atomic random-dependent timed spawn failure. No frame count or browser clock is read inside the engine.
-        - [ ] T-006 — Present an engine session through Canvas and HTML
+        - [x] T-006 — Present an engine session through Canvas and HTML
             Scope: Canvas/HTML views, initial styles/shell and minimal entry/controller composition needed for Start/Restart and snapshot display. Depends on: T-004, T-005.
             Acceptance: a real engine can start/restart through native controls, with board/active piece and ready/running/game-over feedback drawn from coherent snapshots. Presentation does not calculate legal placement or mutate live state; no inactive modern controls are advertised.
             Evidence: actual built-page control/render smoke checks, focused renderer/view checks as useful, type/build checks and readable labels. Record visual evidence limits; fake contexts alone cannot establish browser acceptance. This task delivers presentation wiring, not a second game loop.

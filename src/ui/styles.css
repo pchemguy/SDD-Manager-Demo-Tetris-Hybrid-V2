@@ -108,6 +108,11 @@ body {
   display: block;
 }
 
+#playfield-canvas:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: -2px;
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -119,6 +124,10 @@ body {
   justify-content: center;
   align-items: center;
   pointer-events: none;
+}
+
+.overlay.hidden {
+  display: none;
 }
 
 .status-message {
