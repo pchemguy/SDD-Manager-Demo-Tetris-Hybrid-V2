@@ -11,7 +11,7 @@ Use the source text, brief, structural findings or selected approach, protected 
 ## Procedure
 
 1. Identify each unit's actual purpose and the required document trajectory. Use [composition analysis](composition-analysis.md) for unclear defects and [composition exploration](composition-exploration.md) when competing approaches need comparison.
-2. Select authorized repairs. Preserve essential reasoning, quantities, caveats, citations, examples, and requirements; mark proposed removals that would change substance.
+2. Select authorized repairs. Preserve essential reasoning, quantities, caveats, citations, examples, and requirements; mark proposed removals that would change substance. For diagnosed size/detail problems, trim or consolidate redundant treatment, redistribute detail, or develop supported essentials as needed; retain useful recurrence and flag unavailable substance.
 3. Reorder and group content around meaningful purposes. Place definitions and prerequisites before use; keep evidence and qualifications near the claims they support. Preserve procedural dependencies and cross-references.
 4. Combine fragments that develop one controlling idea. Split overloaded units where distinct purposes warrant boundaries. After splitting, ensure adequate development rather than accidental isolated fragments. Prefer a sound topic sentence in each expository paragraph; retain purposeful brief warnings, transitions, and other justified exceptions without padding them.
 5. Revise headings, topic sentences, lead-ins, and transitions to match the new content. Express the actual relation: contrast, sequence, qualification, explanation, or inference. Do not create a causal link or missing premise to smooth a move.

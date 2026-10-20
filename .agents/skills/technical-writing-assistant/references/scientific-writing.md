@@ -33,4 +33,4 @@ Deliver the requested review or revision with significant interpretive proposals
 
 ## Completion checks
 
-Methods and results are reported from supplied material, interpretation is distinguishable, numerical scope and uncertainty survive, and summaries match the body. Missing information and substantive scientific concerns are explicit. No editorial pass is represented as unperformed data analysis or external verification.
+Methods and results are reported from supplied material, interpretation is distinguishable, numerical scope and uncertainty survive, and summaries match the body. Missing information and substantive scientific concerns are explicit. Do not imply that data analysis or external verification was performed when it was not.

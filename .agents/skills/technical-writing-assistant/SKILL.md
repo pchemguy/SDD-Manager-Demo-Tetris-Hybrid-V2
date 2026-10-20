@@ -28,7 +28,7 @@ Load focused references directly. Load [manager.md](references/manager.md) for c
 | Scope, audience, constraints, and deliverables | [Writing brief](references/writing-brief.md) |
 | Initial material triage and priorities | [Material assessment](references/material-assessment.md) |
 | Shared editorial criteria and checklist | [Style guidelines](references/style-guidelines.md) |
-| Sentence, paragraph, section, and document diagnosis | [Composition analysis](references/composition-analysis.md) |
+| Sentence, paragraph, section, and document composition; size and level of detail | [Composition analysis](references/composition-analysis.md) |
 | Alternative framing, organization, and outlines | [Composition exploration](references/composition-exploration.md) |
 | Context, relationships, and criteria for an outline or map | [Outline context exploration](references/outline-context-exploration.md) |
 | Generate a structured outline or map | [Outline generation](references/outline-generation.md) |
