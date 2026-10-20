@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetris</title>
+    <link rel="stylesheet" href="./src/ui/styles.css" />
+  </head>
+  <body>
+    <div id="app" class="game-container">
+      <header class="game-header">
+        <h1>Tetris</h1>
+      </header>
+
+      <main class="game-layout">
+        <aside class="panel side-panel left-panel">
+          <section id="hold-container" class="sub-panel" aria-label="Hold Piece">
+            <h2>Hold</h2>
+            <div id="hold-display" class="piece-preview" aria-live="polite">None</div>
+          </section>
+
+          <section id="stats-container" class="sub-panel" aria-label="Game Stats">
+            <h2>Stats</h2>
+            <div class="stat-item">
+              <span class="stat-label">Score:</span>
+              <span id="score-display" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Lines:</span>
+              <span id="lines-display" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Level:</span>
+              <span id="level-display" class="stat-value">1</span>
+            </div>
+          </section>
+        </aside>
+
+        <section class="board-region" aria-label="Playfield">
+          <canvas id="playfield-canvas" width="300" height="600" aria-label="Tetris Playfield Canvas"></canvas>
+          <div id="session-overlay" class="overlay" aria-live="assertive">
+            <span id="session-status" class="status-message">Ready</span>
+          </div>
+        </section>
+
+        <aside class="panel side-panel right-panel">
+          <section id="next-container" class="sub-panel" aria-label="Next Piece">
+            <h2>Next</h2>
+            <div id="next-display" class="piece-preview" aria-live="polite">None</div>
+          </section>
+
+          <section id="controls-panel" class="sub-panel" aria-label="Controls">
+            <h2>Actions</h2>
+            <div class="button-group">
+              <button id="btn-start" type="button">Start</button>
+              <button id="btn-pause" type="button" disabled>Pause</button>
+              <button id="btn-restart" type="button" disabled>Restart</button>
+            </div>
+          </section>
+
+          <section id="keyboard-reference" class="sub-panel help-panel" aria-label="Keyboard Reference">
+            <h2>Keys</h2>
+            <dl class="key-list">
+              <dt>← / →</dt><dd>Move</dd>
+              <dt>↓</dt><dd>Soft Drop</dd>
+              <dt>↑ / X</dt><dd>Rotate CW</dd>
+              <dt>Z</dt><dd>Rotate CCW</dd>
+              <dt>Space</dt><dd>Hard Drop</dd>
+              <dt>C / Shift</dt><dd>Hold</dd>
+              <dt>P / Esc</dt><dd>Pause</dd>
+            </dl>
+          </section>
+        </aside>
+      </main>
+    </div>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

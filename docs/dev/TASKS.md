@@ -16,7 +16,7 @@ Each executable task closes with its verified result, evidence and initial ownin
 
 - [ ] Phase 1 — Classic playable game
     - [ ] Milestone 1.1 — Falling pieces and locking
-        - [ ] T-001 — Establish the typed browser and verification foundation
+        - [x] T-001 — Establish the typed browser and verification foundation
             Scope: package/lockfile, root tool and TypeScript configurations, engine contract types, static HTML/entry and relevant ignore/setup documentation. Depends on: none; preparation integration, selected range and phase projection must be verified first.
             Acceptance: compatible dependencies and an isolated Chromium/Playwright-managed Firefox environment conforming to [BROWSER_DEV_POLICY](../../BROWSER_DEV_POLICY.md) are established; strict engine/app/test scopes, local static build/preview, test collection and credential-serving exclusions are configured without a custom global shell. The shell is real static output, not a claim of playable gameplay.
             Evidence: runner/browser versions and provenance, project/job-owned binary location, isolated profile/cache/download locations, consistent installation/run configuration and actual runner launch evidence; applicable type/build and static-browser smoke checks, synthetic sensitive-file refusal, output exclusions and accurate setup commands. Record missing/empty unit collection honestly until rule tests exist. Contracts: S-QUALITY, B-FAIL and layout tooling/output ownership.

@@ -1,2 +1,14 @@
 PowerShell.cmd
 *.tkn
+
+# Dependencies and build output
+node_modules/
+dist/
+
+# Test runner artifacts
+coverage/
+test-results/
+playwright-report/
+
+# Isolated Playwright browsers
+.browsers/
