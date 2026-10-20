@@ -40,7 +40,7 @@ Each executable task closes with its verified result, evidence and initial ownin
             Scope: Canvas/HTML views, initial styles/shell and minimal entry/controller composition needed for Start/Restart and snapshot display. Depends on: T-004, T-005.
             Acceptance: a real engine can start/restart through native controls, with board/active piece and ready/running/game-over feedback drawn from coherent snapshots. Presentation does not calculate legal placement or mutate live state; no inactive modern controls are advertised.
             Evidence: actual built-page control/render smoke checks, focused renderer/view checks as useful, type/build checks and readable labels. Record visual evidence limits; fake contexts alone cannot establish browser acceptance. This task delivers presentation wiring, not a second game loop.
-        - [ ] T-007 — Connect keyboard and elapsed time to the falling-piece prototype
+        - [x] T-007 — Connect keyboard and elapsed time to the falling-piece prototype
             Scope: input/clock adapters and controller update flow with integration/browser checks. Depends on: T-001, T-005, T-006.
             Acceptance: basic classic keyboard commands and monotonic elapsed delivery drive the engine, with at most one basic loop across Start/Restart. Board updates show landing delay, lock and subsequent spawn or game over. Custom held-repeat and complete interruption behavior remain in 1.3.
             Evidence: controlled clock/input-to-engine tests, real-browser falling/movement/rotation/soft-drop smoke, build/type checks and the 1.1 demonstration. Document the prototype's incomplete line/progression and modern scope accurately.

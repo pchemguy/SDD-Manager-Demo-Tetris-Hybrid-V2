@@ -90,6 +90,47 @@ test.describe('Static Browser Foundation Smoke', () => {
     await expect(btnRestart).toBeEnabled();
   });
 
+  test('drives falling piece prototype via keyboard inputs and elapsed time', async ({ page }) => {
+    await page.goto('/');
+
+    const canvas = page.locator('#playfield-canvas');
+    const overlay = page.locator('#session-overlay');
+    const status = page.locator('#session-status');
+
+    // Focus canvas and press Enter to start
+    await canvas.focus();
+    await page.keyboard.press('Enter');
+
+    await expect(overlay).toHaveClass(/hidden/);
+    await expect(page.locator('#btn-start')).toBeDisabled();
+    await expect(page.locator('#btn-restart')).toBeEnabled();
+
+    // Move left and right
+    await page.keyboard.press('ArrowLeft');
+    await page.keyboard.press('ArrowRight');
+
+    // Rotate CW and CCW
+    await page.keyboard.press('ArrowUp');
+    await page.keyboard.press('KeyZ');
+
+    // Soft drop
+    await page.keyboard.press('ArrowDown');
+
+    // Pause via keyboard (KeyP)
+    await page.keyboard.press('KeyP');
+    await expect(status).toHaveText('Paused');
+    await expect(overlay).not.toHaveClass(/hidden/);
+
+    // Resume via keyboard (KeyP)
+    await page.keyboard.press('KeyP');
+    await expect(overlay).toHaveClass(/hidden/);
+
+    // Restart via keyboard (KeyR)
+    await page.keyboard.press('KeyR');
+    await expect(overlay).toHaveClass(/hidden/);
+    await expect(page.locator('#btn-restart')).toBeEnabled();
+  });
+
   test('production server does not serve credentials and dist excludes sensitive files', async ({ request }) => {
     const response = await request.get('/gh.tkn');
     const text = await response.text();
