@@ -15,7 +15,7 @@ Each executable task closes with its verified result, evidence and initial ownin
 ## Phase 1 — Classic playable game
 
 - [ ] Phase 1 — Classic playable game
-    - [ ] Milestone 1.1 — Falling pieces and locking
+    - [x] Milestone 1.1 — Falling pieces and locking
         - [x] T-001 — Establish the typed browser and verification foundation
             Scope: package/lockfile, root tool and TypeScript configurations, engine contract types, static HTML/entry and relevant ignore/setup documentation. Depends on: none; preparation integration, selected range and phase projection must be verified first.
             Acceptance: compatible dependencies and an isolated Chromium/Playwright-managed Firefox environment conforming to [BROWSER_DEV_POLICY](../../BROWSER_DEV_POLICY.md) are established; strict engine/app/test scopes, local static build/preview, test collection and credential-serving exclusions are configured without a custom global shell. The shell is real static output, not a claim of playable gameplay.
@@ -44,7 +44,7 @@ Each executable task closes with its verified result, evidence and initial ownin
             Scope: input/clock adapters and controller update flow with integration/browser checks. Depends on: T-001, T-005, T-006.
             Acceptance: basic classic keyboard commands and monotonic elapsed delivery drive the engine, with at most one basic loop across Start/Restart. Board updates show landing delay, lock and subsequent spawn or game over. Custom held-repeat and complete interruption behavior remain in 1.3.
             Evidence: controlled clock/input-to-engine tests, real-browser falling/movement/rotation/soft-drop smoke, build/type checks and the 1.1 demonstration. Document the prototype's incomplete line/progression and modern scope accurately.
-        - [ ] T-008 — Review, test and report milestone 1.1
+        - [x] T-008 — Review, test and report milestone 1.1
             Depends on: T-001, T-002, T-003, T-004, T-005, T-006, T-007.
             Acceptance/evidence: review integrated source and dependencies, run 1.1 exits/regressions, repair blockers, retain demonstration/feedback evidence and a report with TODO dispositions. Refresh HANDOFF in this task's completion commit; publish/close the issue, then verify milestone closure before 1.2.
             Report: `docs/dev/reports/phases/1/1.1.md`.
