@@ -42,8 +42,6 @@ For selected GitHub phase or main-preparation projection, the optional [projecti
 
 ## Core development workflows
 
-The [Windows shell policy](skills/sdd-manage/references/windows-shell.md) defaults to CMD-compatible commands, unavailable PowerShell/pwsh and one command per shell call, using separate calls or a temporary CMD script for sequences. Script text, even a one-liner, goes in a temporary script file or the complete call in a temporary CMD file; the shell tool receives the file invocation. Pipes, redirection and other shell operations require the complete call in a temporary CMD file. A project that specifically targets PowerShell or defines explicit project-specific shell policies overrides the corresponding defaults. The agent first probes the actual shell tool. A PowerShell-related error triggers recovery with the bundled CMD shim, which restores escaped double quotes. The coordinator verifies retry and reports activation; unresolved failure ends the turn.
-
 | Workflow | Purpose and typical path |
 | --- | --- |
 | **Main development** | Define the complete system, then implement it in bounded increments from design, SPEC, PLAN/layout, and TASKS. Existing projects can enter at an established stage. |

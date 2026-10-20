@@ -11,6 +11,8 @@ Execute the user's requested task-list boundary. **sdd-manage** coordinates auth
 
 Apply the coordinator's [scope checks and reporting detail](../sdd-manage/references/coordination.md#scope-checks-and-reporting-detail), including direct calls: check scope/pending decisions before work and both path/change before writes; requested brevity preserves consequential evidence and checkpoints.
 
+For browser-dependent work, discover and follow any project-defined browser development policies and declared setup/test commands before selecting or using browser facilities.
+
 ## Reference routing
 
 | Work | Load |
@@ -19,7 +21,6 @@ Apply the coordinator's [scope checks and reporting detail](../sdd-manage/refere
 | Resolve next task, next N tasks, milestone, or phase requests | [range selection](references/range-selection.md) |
 | Establish tracking decision and phase readiness before task execution, including direct calls/resume | **sdd-manage**: [tracking decision](../sdd-manage/references/tracking-decision.md) and [phase activation](../sdd-manage/references/phase-activation.md) |
 | Investigate installation, provisioning or runtime blockers within the selected scope | [environment recovery](references/environment-recovery.md) |
-| Plan, prepare or assess browser execution: dedicated Chromium/Firefox, normal setup, capability evidence and observed-failure recovery | [browser environment readiness](references/browser-capabilities.md) |
 | Execute tasks with tests, documentation, and verification | [task execution](references/task-execution.md) |
 | Bootstrap disclosure and usage records before the first SDD commit | **sdd-manage**: `skills/sdd-manage/references/repository-bootstrap.md` (bundled dependency) |
 | Mark completion, commit and push, reconcile issues, and stop | [completion and checkpoints](references/completion-and-checkpoints.md) |

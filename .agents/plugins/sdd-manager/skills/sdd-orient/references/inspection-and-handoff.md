@@ -9,11 +9,11 @@ Use this reference for read-only orientation. Collect enough evidence for the co
 - Identify contradictory or unreadable instructions and the exact affected action. Record rules for language, build, test, documentation, generated files, source ownership, and commit practices when relevant.
 - Inspect `docs/dev/PROJECT.md` as the project brief. Determine the role of its actual contents. If it contains operating instructions, report them as applicable instructions and identify their scope and any conflict; document revision is a separate workflow.
 
-## Execution OS and shell readiness
+## Execution OS and tool readiness
 
-Establish the OS of the host executing shell commands from available tool/environment evidence, separately from the user's desktop or product target. Reuse sufficient current evidence for the same host/tool. Before generating/executing Windows CLIs, load the coordinator's [Windows shell policy](../../sdd-manage/references/windows-shell.md) and honor its project-specific precedence. Its defaults are unavailable PowerShell/pwsh, CMD syntax and one command per call. Establish its bounded harmless CMD readiness probe before shell-dependent Git inspection. Check expected output/variable expansion and exit status; literal percent-variable text is not proof of working CMD execution.
+Establish the OS of the host executing commands from available tool/environment evidence, separately from the user's desktop or product target. Follow applicable user/repository instructions and reuse sufficient current evidence for the same host/tools.
 
-Record the actual tool's probe output, exit/error and any observed adapter; hidden-launcher knowledge is not a prerequisite. Return PowerShell-related probe errors, other readiness failures and unresolved Git checks to sdd-manage without creating PowerShell.cmd, changing PATH/.gitignore or inferring readiness. The coordinator owns error-triggered shim placement, verified retry and activation reporting. Other execution hosts do not acquire Windows-specific probes or writes. A startup probe is read-only evidence, not product verification or authority to repair the environment.
+Record relevant tool availability, attempted read-only checks and actual output/exit/errors. Return readiness failures and unresolved Git checks to sdd-manage without installing tools, changing configuration or inferring readiness. Startup observations are not product verification or authority to repair the environment.
 
 ## Git evidence
 
@@ -94,7 +94,7 @@ Instructions: applicable sources, scope, and conflicts
 Documents: main roots and relevant children; active feature/change documents
 Continuity: HANDOFF checkpoint/commit; later task/decision evidence; candidate branches and recorded parents; parent containment, remote uncertainty and recovered scope/stop
 Execution evidence: owning TASKS or FEATURE-TASKS; last committed task and commit; current task and status; pending changes; existing verification evidence; remaining work or ambiguity
-Tooling: actual execution OS/tool; Windows probe/launcher and active shim/quote-conversion state where applicable; relevant declared commands and environment limitations
+Tooling: actual execution OS/tools; applicable host instructions; relevant declared commands, observations and environment limitations
 Readiness: read-only possible; repository mutation eligible or blocked; reasons
 Handoff: scoped facts for the next skill; unknowns and checks to repeat
 ```

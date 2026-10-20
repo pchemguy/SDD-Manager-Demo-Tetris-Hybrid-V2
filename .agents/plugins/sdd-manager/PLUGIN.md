@@ -13,7 +13,7 @@ Read an available `PLUGIN.md` explicitly when the client has not loaded it and e
 
 ## Establish the request and context
 
-Identify the actual shell execution OS at startup. On Windows, apply the coordinator's [general shell policy](skills/sdd-manage/references/windows-shell.md), honoring its project-specific precedence. Its defaults are CMD, unavailable PowerShell/pwsh and one command per shell call. Probe the actual tool first; PowerShell-related errors trigger CMD shim recovery without prior knowledge of the hidden launcher. A failed retry ends the turn. Orientation observes read-only.
+Identify the actual execution host and available tools at startup, following applicable user and repository instructions. Orientation observes read-only.
 
 For a new development, functionality, review or revision request without sufficient workflow context, use `sdd-manage` to establish project state and select the path. Use [sdd-orient](skills/sdd-orient/SKILL.md) when current repository evidence is insufficient. Select by purpose; new, existing or interrupted state determines the eligible stage, not the workflow by itself.
 

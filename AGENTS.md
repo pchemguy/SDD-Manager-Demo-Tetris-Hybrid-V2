@@ -10,6 +10,14 @@ This project uses the SDD Manager plugin for specification-driven development. I
 
 Execute the [skill and plugin discovery protocol](SKILL_DISCOVERY_PROTOCOL.md).
 
+## Windows shell
+
+On **Windows execution hosts only**, follow [WINDOWS_SHELL_POLICY.md](WINDOWS_SHELL_POLICY.md): CMD syntax, unavailable PowerShell/pwsh, temporary files for script text and shell operations, and the documented tool probe/recovery. This repository policy is independent of the plugin.
+
+## Browser development
+
+When developing or testing browser-based applications or browser extensions, follow [BROWSER_DEV_POLICY.md](BROWSER_DEV_POLICY.md). Prioritize Chromium and include Firefox by default; project documents may specify other choices. Use dedicated, isolated environments.
+
 ## Workflow continuity
 
 For continuation, read `docs/dev/HANDOFF.md` and use `sdd-manage`'s continuity subworkflow to reconstruct later work from current development records and Git. The handoff describes a checkpoint, not necessarily the branch tip. At startup, inspect unfinished workflow branches against their recorded parents and request the continuation branch unless already selected. Preserve the recovered scope, approvals and stopping boundary.

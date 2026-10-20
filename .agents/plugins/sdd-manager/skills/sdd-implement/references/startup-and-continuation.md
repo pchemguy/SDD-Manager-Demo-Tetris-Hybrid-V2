@@ -59,6 +59,6 @@ Carry the existing request, destination/ref or hosted identity, payload scope, c
 
 ## Environment readiness
 
-After the push-first and execution prerequisites, establish the selected work's declared environment. When browser execution is needed, load [browser environment readiness](browser-capabilities.md) for its dedicated Chromium/Firefox policy, normal project setup and capability evidence before dependent execution. Reuse sufficient compatible environment-owned assets/evidence. Planning alone and ordinary engine/CLI work require no browser installation.
+After the push-first and execution prerequisites, establish the selected work's declared environment. Before browser-dependent execution, discover and follow any applicable project-defined browser development policies, declared setup and test configuration. Resolve conflicts with accepted contracts rather than silently changing coverage or choosing another facility. Planning alone and ordinary engine/CLI work require no browser installation.
 
-For observed installation/runtime blockers, use [environment recovery](environment-recovery.md). Return actual attempts, supported alternatives and remaining required capabilities to the manager; browser alternatives retain the shared policy rather than bypass it.
+For observed installation/runtime blockers, use [environment recovery](environment-recovery.md). Return actual attempts, supported alternatives and remaining required capabilities to the manager; alternatives must preserve applicable project policies and accepted requirements.
