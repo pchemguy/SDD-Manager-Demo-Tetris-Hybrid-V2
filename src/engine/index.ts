@@ -9,4 +9,5 @@ export * from './board.js';
 export * from './placement.js';
 export * from './sequence.js';
 export * from './snapshot.js';
+export * from './gravity.js';
 export * from './session.js';

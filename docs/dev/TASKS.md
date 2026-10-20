@@ -32,7 +32,7 @@ Each executable task closes with its verified result, evidence and initial ownin
             Scope: session facade, transition calculations, snapshot/public exports and focused session tests. Depends on: T-002, T-003.
             Acceptance: ready/start/restart, legal left/right/soft-drop/in-place rotation, spawn/blocked spawn, supported action/time validation and detached classic-state reads are coordinated by one session owner. Modern feature behaviors remain explicitly incomplete under PLAN rather than exposed as working controls.
             Evidence: test-first public lifecycle/action/no-op/input checks, snapshot mutation isolation, no draws on reads and atomic start/spawn failure. Verify import has no browser/setup side effects. Trace S-API/S-DATA/S-DETERMINISM only for the delivered P1 subset.
-        - [ ] T-005 — Implement chronological gravity and full-interval normal locking
+        - [x] T-005 — Implement chronological gravity and full-interval normal locking
             Scope: session/transition timing and locked-board integration plus engine tests. Depends on: T-004.
             Acceptance: normal gravity, full G after landing, grounded-deadline preservation, airborne reset, chronological lock/spawn and remaining-time processing follow G-TIME. Failed downward requests do not lock immediately.
             Evidence: just-before/at-deadline and partitioned-time checks, movement around support edges, level-1 timing, invalid elapsed input and atomic random-dependent timed spawn failure. No frame count or browser clock is read inside the engine.

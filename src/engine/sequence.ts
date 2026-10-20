@@ -61,9 +61,8 @@ export class PieceSequence {
   /**
    * Returns the next queued piece without consuming any draws or removing it.
    */
-  public peekNext(): TetrominoType {
-    this.ensureQueueCapacity();
-    return this.queue[0];
+  public peekNext(): TetrominoType | null {
+    return this.queue.length > 0 ? this.queue[0] : null;
   }
 
   /**

@@ -12,11 +12,12 @@ import type {
   TetrominoType,
   EngineSnapshot
 } from './types.js';
-import { createEmptyBoard } from './board.js';
+import { createEmptyBoard, lockPieceToBoard } from './board.js';
 import { SPAWN_DEFINITIONS, getPieceCells } from './geometry.js';
 import { isLegalPlacement, tryRotatePiece } from './placement.js';
 import { PieceSequence } from './sequence.js';
 import { projectSnapshot } from './snapshot.js';
+import { getGravityInterval, isPieceGrounded } from './gravity.js';
 
 const RECOGNIZED_ACTIONS = new Set([
   'start',
@@ -43,6 +44,9 @@ export class GameSession implements Session {
   private level = 1;
   private sequence: PieceSequence | null = null;
   private readonly random: () => number;
+
+  private gravityAccumulatorMs = 0;
+  private lockTimerMs: number | null = null;
 
   constructor(options: SessionOptions) {
     if (!options || typeof options.random !== 'function') {
@@ -99,6 +103,7 @@ export class GameSession implements Session {
             position: nextPos,
             cells: getPieceCells(this.active.type, this.active.rotation, nextPos)
           };
+          this.updateGroundingAfterPlacementChange();
         }
         break;
       }
@@ -110,6 +115,7 @@ export class GameSession implements Session {
             position: nextPos,
             cells: getPieceCells(this.active.type, this.active.rotation, nextPos)
           };
+          this.updateGroundingAfterPlacementChange();
         }
         break;
       }
@@ -121,12 +127,15 @@ export class GameSession implements Session {
           this.active.position,
           'cw'
         );
-        this.active = {
-          ...this.active,
-          rotation: result.rotation,
-          position: result.position,
-          cells: getPieceCells(this.active.type, result.rotation, result.position)
-        };
+        if (result.rotation !== this.active.rotation || result.position !== this.active.position) {
+          this.active = {
+            ...this.active,
+            rotation: result.rotation,
+            position: result.position,
+            cells: getPieceCells(this.active.type, result.rotation, result.position)
+          };
+          this.updateGroundingAfterPlacementChange();
+        }
         break;
       }
       case 'rotateCCW': {
@@ -137,12 +146,15 @@ export class GameSession implements Session {
           this.active.position,
           'ccw'
         );
-        this.active = {
-          ...this.active,
-          rotation: result.rotation,
-          position: result.position,
-          cells: getPieceCells(this.active.type, result.rotation, result.position)
-        };
+        if (result.rotation !== this.active.rotation || result.position !== this.active.position) {
+          this.active = {
+            ...this.active,
+            rotation: result.rotation,
+            position: result.position,
+            cells: getPieceCells(this.active.type, result.rotation, result.position)
+          };
+          this.updateGroundingAfterPlacementChange();
+        }
         break;
       }
       case 'softDrop': {
@@ -153,6 +165,7 @@ export class GameSession implements Session {
             position: nextPos,
             cells: getPieceCells(this.active.type, this.active.rotation, nextPos)
           };
+          this.updateGroundingAfterPlacementChange();
         }
         break;
       }
@@ -173,11 +186,79 @@ export class GameSession implements Session {
       );
     }
 
-    if (this.status !== 'running') {
+    if (this.status !== 'running' || !this.active) {
       return;
     }
 
-    // Chronological gravity and locking are integrated in T-005
+    let remainingTime = elapsedMs;
+
+    while (remainingTime > 0 && this.status === 'running' && this.active !== null) {
+      const currentActive: ActivePiece = this.active;
+      const G = getGravityInterval(this.level);
+      const grounded = isPieceGrounded(this.board, currentActive);
+
+      // Reconcile grounding state
+      if (grounded && this.lockTimerMs === null) {
+        this.lockTimerMs = 0;
+      } else if (!grounded && this.lockTimerMs !== null) {
+        this.lockTimerMs = null;
+      }
+
+      const timeToGravity = Math.max(0, G - this.gravityAccumulatorMs);
+      const timeToLock = this.lockTimerMs !== null ? Math.max(0, G - this.lockTimerMs) : Infinity;
+
+      // Locking takes precedence over gravity attempt due at the same instant per G-TIME
+      if (timeToLock <= timeToGravity && timeToLock !== Infinity) {
+        const dt = timeToLock;
+        if (remainingTime < dt) {
+          this.gravityAccumulatorMs += remainingTime;
+          if (this.lockTimerMs !== null) {
+            this.lockTimerMs += remainingTime;
+          }
+          remainingTime = 0;
+        } else {
+          remainingTime -= dt;
+          this.gravityAccumulatorMs += dt;
+          if (this.lockTimerMs !== null) {
+            this.lockTimerMs += dt;
+          }
+          this.lockAndSpawn();
+        }
+      } else {
+        const dt = timeToGravity;
+        if (remainingTime < dt) {
+          this.gravityAccumulatorMs += remainingTime;
+          if (this.lockTimerMs !== null) {
+            this.lockTimerMs += remainingTime;
+          }
+          remainingTime = 0;
+        } else {
+          remainingTime -= dt;
+          this.gravityAccumulatorMs = 0;
+          if (this.lockTimerMs !== null) {
+            this.lockTimerMs += dt;
+          }
+
+          // Gravity attempts one downward row
+          const nextPos = { x: currentActive.position.x, y: currentActive.position.y + 1 };
+          if (isLegalPlacement(this.board, currentActive.type, currentActive.rotation, nextPos)) {
+            const updatedActive: ActivePiece = {
+              ...currentActive,
+              position: nextPos,
+              cells: getPieceCells(currentActive.type, currentActive.rotation, nextPos)
+            };
+            this.active = updatedActive;
+            if (isPieceGrounded(this.board, updatedActive)) {
+              this.lockTimerMs = 0;
+            } else {
+              this.lockTimerMs = null;
+            }
+          } else {
+            // Failed downward attempt; does not lock piece immediately per G-TIME
+          }
+        }
+      }
+    }
   }
 
   public getSnapshot(): EngineSnapshot {
@@ -195,6 +276,33 @@ export class GameSession implements Session {
     });
   }
 
+  private updateGroundingAfterPlacementChange(): void {
+    if (!this.active) return;
+    const grounded = isPieceGrounded(this.board, this.active);
+    if (grounded) {
+      if (this.lockTimerMs === null) {
+        // Just became grounded: start lock timer with deadline 1 full G later
+        this.lockTimerMs = 0;
+      }
+      // If already grounded, lockTimerMs is preserved
+    } else {
+      // Airborne: clear lock timer
+      this.lockTimerMs = null;
+    }
+  }
+
+  private lockAndSpawn(): void {
+    if (!this.active) return;
+    const lockedActive = this.active;
+    const newBoard = lockPieceToBoard(this.board, lockedActive);
+    this.board = newBoard;
+    this.active = null;
+    this.lockTimerMs = null;
+    this.gravityAccumulatorMs = 0;
+
+    this.spawnNextPiece();
+  }
+
   private startFreshGame(): void {
     this.board = createEmptyBoard();
     this.score = 0;
@@ -202,6 +310,8 @@ export class GameSession implements Session {
     this.level = 1;
     this.held = null;
     this.canHold = false;
+    this.gravityAccumulatorMs = 0;
+    this.lockTimerMs = null;
     this.sequence = new PieceSequence(this.random);
 
     this.spawnNextPiece();
@@ -218,6 +328,8 @@ export class GameSession implements Session {
       // Blocked spawn ends the game per G-BOARD
       this.status = 'gameOver';
       this.active = null;
+      this.lockTimerMs = null;
+      this.gravityAccumulatorMs = 0;
       return;
     }
 
@@ -228,6 +340,12 @@ export class GameSession implements Session {
       position: spawnPos,
       cells: getPieceCells(nextType, 0, spawnPos)
     };
+    this.gravityAccumulatorMs = 0;
+    if (isPieceGrounded(this.board, this.active)) {
+      this.lockTimerMs = 0;
+    } else {
+      this.lockTimerMs = null;
+    }
   }
 }
 
