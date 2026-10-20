@@ -73,7 +73,7 @@ Use npm with TypeScript, Vite for the static browser application/build, Vitest f
 
 Intended npm script names are `dev`, `typecheck`, `test`, `build`, `preview` and `test:browser`. They describe future script ownership, not validated runnable commands. `typecheck` must include engine, application and test/config scopes; `build` must not treat transpilation alone as TypeScript validation. Keep scripts usable through ordinary npm invocation without assuming PowerShell or imposing a custom global script shell. Record actual runtime/tool versions and verified commands when implementation establishes them.
 
-Browser projects cover Chrome (`chrome` channel), Edge (`msedge` channel) and Playwright-managed Firefox. Record actual browser versions and the Firefox build provenance in evidence. Generic Chromium results must not be relabeled as Chrome/Edge coverage. Provisioning is a separate implementation readiness check; missing required channels or incompatible binaries remain blockers under PLAN rather than implicit omissions.
+Browser projects cover Chromium as the primary target and Playwright-managed Firefox as the second target. Provisioning and execution follow [BROWSER_DEV_POLICY](../../BROWSER_DEV_POLICY.md); T-001 establishes the isolated environment and records its evidence. Record actual browser versions and managed-build provenance. Missing required targets or incompatible binaries remain blockers under PLAN rather than implicit omissions.
 
 ## Generated output, documentation and existing assets
 
@@ -95,7 +95,7 @@ The [PLAN review report](PLAN-REVIEW-REPORT.md) includes combined strategy/place
 
 - [Vite getting started](https://vite.dev/guide/): TypeScript/static application tooling and script/build entry points.
 - [Vitest getting started](https://vitest.dev/guide/): Vite-based unit-test tooling and compatibility guidance.
-- [Playwright browsers](https://playwright.dev/docs/browsers): browser projects, branded Chrome/Edge channels and managed browser provisioning.
+- [Playwright browsers](https://playwright.dev/docs/browsers): browser projects and managed Chromium/Firefox provisioning.
 - [Vite server options](https://vite.dev/config/server-options#server-fs-deny): development-server sensitive-file exclusions.
 
 These official references support the proposed tool capabilities. They do not establish this host's browser availability, compatible installed dependency set or successful product checks.

@@ -2,9 +2,11 @@
 
 ## Current gate
 
+Current browser-policy assessment: **Ready**, Revision 3 below. The accepted amendment supersedes the earlier browser-matrix conclusions and source identities for affected files.
+
 State: **Ready for dependent PLAN authoring**, subject to publication/tracking prerequisites, with no unresolved technical QC finding. Human first approval is recorded in DOCS_TASKS for proposal commit `11089cfc408648a3256df9b51713d5080fa6b9b6`. This conclusion concerns the accepted specification, not an implemented game.
 
-Reviewed scope: [SPEC](SPEC.md), [game rules](spec/game-rules.md) and [browser session](spec/browser-session.md). The final reviewed SHA-256 identities appear in Revision 1. The report itself is not included in those hashes.
+Reviewed scope: [SPEC](SPEC.md), [game rules](spec/game-rules.md) and [browser session](spec/browser-session.md). Current reviewed SHA-256 identities appear in Revision 3. The report itself is not included in those hashes.
 
 Governing inputs and acceptance evidence:
 
@@ -88,3 +90,16 @@ sdd-manage coordinated editorial status/navigation corrections under DOCS-009; t
 - `SPEC.md` SHA-256: `d0ea5aed2561eb9db3d96cb2d7581872e26a8ec66196d4f598f5c84a44799681`.
 
 Recheck outcome: Ready for the same scoped conformance, with no new confirmed contract/decomposition finding. SPEC children remain byte-identical. The whole-package report owns preparation readiness; implementation evidence and range selection remain pending.
+
+## Revision 3 — Accepted browser targets
+
+Date: 2026-10-20. Baseline: `b488d89e156cd333a73d061a26fd4053b0b42527`. The human explicitly authorized Chromium as primary, Playwright-managed Firefox as the second target, isolated provisioning evidence in T-001 and reassessment of the affected QC conclusions. Earlier observations and source identities above are retained as review history.
+
+sdd-specify rechecked S-QUALITY against PROJECT, ARCHITECTURE and DECOMPOSITION: the two-target desktop matrix preserves the keyboard, viewport and static-delivery contracts and all gameplay/API acceptance. Both SPEC children and governing design documents are byte-identical to baseline. Selection conforms to the central policy; layout owns provisioning placement and TASKS owns execution evidence. **Ready:** no unresolved specification/design finding. This is document conformance, not executed browser coverage.
+
+| Current source | SHA-256 |
+| --- | --- |
+| `BROWSER_DEV_POLICY.md` | `3728e7460b0a3365a580f69a3c72cf03a4768f0b750356c44ef4c169fa1c64f9` |
+| `docs/dev/SPEC.md` | `f491e22d1a5893511cffe15df8e3c7a182dccd29a63d9ec55439f0cf12311748` |
+| `docs/dev/spec/game-rules.md` | `873fd13eda9b698a830a1e383937e7002b8c0cbe56deeec7ee32c311562271e5` |
+| `docs/dev/spec/browser-session.md` | `519ec8ebccba648d7f985e4ce39f1472bae149feb9ad27562467f4b3188dc87e` |

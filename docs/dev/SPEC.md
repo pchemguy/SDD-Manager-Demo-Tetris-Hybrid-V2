@@ -54,7 +54,7 @@ The engine owns all legality, landing and scoring calculations. Ghost projection
 
 ## S-QUALITY: Delivery and supported use
 
-Target desktop keyboard use in Chrome, Edge and Firefox; record actual tested versions with implementation evidence. Support a 1024×768 viewport without losing the board or session controls; larger viewports may scale the layout. At narrower sizes, ordinary page scrolling may be used. Touch interaction is outside acceptance.
+Target desktop keyboard use in Chromium as the primary browser and Playwright-managed Firefox as the second target; record actual tested versions with implementation evidence. Support a 1024×768 viewport without losing the board or session controls; larger viewports may scale the layout. At narrower sizes, ordinary page scrolling may be used. Touch interaction is outside acceptance.
 
 The production output is statically hostable. Document verified development, type-check, automated-test and production-build commands when implemented. Automated checks must include deterministic engine scenarios and browser integration; document review is not gameplay verification. No fixed frame rate is required for rule correctness. The browser child defines stall/interruption handling and visual/focus requirements.
 

@@ -2,6 +2,8 @@
 
 ## Current gate
 
+Current browser-policy assessment: **Ready**, Revision 5 below. The accepted amendment supersedes the earlier browser-matrix conclusions and source identities for affected files.
+
 State: **Ready for TASKS derivation**, subject to publication/tracking prerequisites, after combined PLAN/layout QC. No confirmed strategy/placement finding remains unresolved. PLAN and layout first approvals are recorded in DOCS_TASKS for their exact presented states. This report does not authorize implementation or hosted implementation projection.
 
 Reviewed roots: [PLAN](PLAN.md), SHA-256 `7775ab7efe655284f696366a6b15281c0fcb70ed91029994224749aeedf104d3`, and [layout](layout.md), final SHA-256 `6d2820aef2d0dbe904fecf6fd292362839d716e364343ca2c0efcdc3a4fefb68`. No focused PLAN/layout children are required. Revisions 2–3 retain the new placement assessment; earlier strategy-only observations remain historical.
@@ -131,3 +133,16 @@ sdd-manage coordinated editorial status/navigation corrections under DOCS-009; t
 - `layout.md` SHA-256: `6d2820aef2d0dbe904fecf6fd292362839d716e364343ca2c0efcdc3a4fefb68`.
 
 Recheck outcome: Ready for the same scoped conformance, with no new confirmed contract/decomposition finding. SPEC children remain byte-identical. The whole-package report owns preparation readiness; implementation evidence and range selection remain pending.
+
+## Revision 5 — Browser policy alignment
+
+Date: 2026-10-20. Baseline: `b488d89e156cd333a73d061a26fd4053b0b42527`. The human explicitly authorized Chromium as primary, Playwright-managed Firefox as the second target, isolated provisioning evidence in T-001 and reassessment of the affected QC conclusions. Earlier observations and source identities above are retained as review history.
+
+sdd-plan rechecked the changed SPEC/layout boundary and PLAN exits. Layout selects the same two browsers as SPEC, removes the branded channel requirements and points to the central policy for provisioning/execution. The framework remains Playwright; managed builds, recorded provenance and blocked acceptance for a missing required target are consistent. T-001 establishes the environment before browser delivery and T-018 checks both targets. PLAN, physical source/test ownership, phase/milestone identities and delivery counts remain unchanged. **Ready:** combined PLAN/layout conformance passes for the amended browser scope. Earlier Chrome/Edge assessments do not describe the current matrix. Provisioning remains unexecuted implementation work.
+
+| Current source | SHA-256 |
+| --- | --- |
+| `BROWSER_DEV_POLICY.md` | `3728e7460b0a3365a580f69a3c72cf03a4768f0b750356c44ef4c169fa1c64f9` |
+| `docs/dev/SPEC.md` | `f491e22d1a5893511cffe15df8e3c7a182dccd29a63d9ec55439f0cf12311748` |
+| `docs/dev/PLAN.md` | `7775ab7efe655284f696366a6b15281c0fcb70ed91029994224749aeedf104d3` |
+| `docs/dev/layout.md` | `3eb5bf7f21c9150c39835fbe9b441ce228bd5a366cd61572b7716dce76b2544d` |

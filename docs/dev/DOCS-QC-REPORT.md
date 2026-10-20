@@ -2,6 +2,8 @@
 
 ## Current result
 
+Current browser-policy amendment: **Pass**, Revision 2 below; earlier matrix conclusions and source identities are retained as history.
+
 **Pass — documentation ready for integration and final preparation checkpoint.** No unresolved package finding remains. All seven first-document approvals, initialization and corresponding issue closures are verified. Product implementation is not started; no task range or phase activation is authorized.
 
 Scope: current PROJECT, ARCHITECTURE, DECOMPOSITION, SPEC and both children, PLAN, layout, TASKS, their three QC reports, initialization/root guidance, DOCS_TASKS, HANDOFF and Git/hosted preparation evidence. Review owner: sdd-verify; sdd-manage coordinated bounded editorial repairs. Date: 2026-10-19. This was single-agent document verification on Linux/Bash, not independent product code review.
@@ -64,3 +66,22 @@ No npm installation, engine/controller test, browser provisioning/gameplay check
 Incoming preparation tip: `a99cd704c1ca871ccc6f42f8598d70c422b890d5`; refreshed main parent: `6baec3f9c8a652bc4850d27998bbc97db2c99bd9`. All nine preparation issues were verified completed before merge. Explicit no-fast-forward merge had no conflicts; HANDOFF was reconciled to main's pending-publication/range-selection boundary, README reflects accepted documentation, and the result sentence's approval count was clarified to seven documents plus initialization. No accepted contract or task changed.
 
 Merged checks passed: exact source hashes in this report, current local links/headings/checklist structure, 32 unchecked product tasks, matching PLAN milestone identities, nine completed DOCS tasks, credential untracked and bundled plugin/disclosure/license preservation. No implementation checks apply before source exists. Commit/publication and milestone closure remain subsequent effects requiring readback.
+
+## Revision 2 — Browser policy reassessment
+
+Date: 2026-10-20. Baseline: `b488d89e156cd333a73d061a26fd4053b0b42527`. The human explicitly authorized Chromium as primary, Playwright-managed Firefox as the second target, isolated provisioning evidence in T-001 and reassessment of the affected QC conclusions. Earlier observations and source identities above are retained as review history.
+
+sdd-verify reassessed the whole affected chain: S-QUALITY → layout/tooling → T-001 provisioning → T-018 browser acceptance → phase exits and the focused QC reports. All now use Chromium as primary and Playwright-managed Firefox as the second target. The root policy remains the single source of detailed setup/isolation rules, referenced from layout and T-001. Its installation/execution path requirement, managed builds, owned binaries/state and evidence boundaries are covered by the planned T-001 result. Browser capability remains an implementation prerequisite, not a claimed completed check.
+
+**Pass for the accepted documentation amendment.** Link/heading/checklist checks, exact task/dependency preservation, unchanged PLAN/design/SPEC children, targeted contract diffs and Git whitespace checks passed. Initial DOCS approvals remain complete; all 32 implementation tasks remain unchecked. No product source, dependency installation or browser execution is part of this revision. The earlier package table is historical; the table below identifies the current reassessed state. Publication/integration remain subsequent effects to verify in Git.
+
+| Current source | SHA-256 |
+| --- | --- |
+| `BROWSER_DEV_POLICY.md` | `3728e7460b0a3365a580f69a3c72cf03a4768f0b750356c44ef4c169fa1c64f9` |
+| `docs/dev/SPEC.md` | `f491e22d1a5893511cffe15df8e3c7a182dccd29a63d9ec55439f0cf12311748` |
+| `docs/dev/layout.md` | `3eb5bf7f21c9150c39835fbe9b441ce228bd5a366cd61572b7716dce76b2544d` |
+| `docs/dev/TASKS.md` | `5f67bef3becfc371403c46a51d75abd1cdf7a518d5398791de5520a483794ed1` |
+| `docs/dev/PLAN.md` | `7775ab7efe655284f696366a6b15281c0fcb70ed91029994224749aeedf104d3` |
+| `docs/dev/SPEC-REVIEW-REPORT.md` | `0d19de465e4ddaee6119182c54688c82ff83eacbb885b464c831a11b2cc4e328` |
+| `docs/dev/PLAN-REVIEW-REPORT.md` | `ee7ece9bc124433134e028ed34cd2f4b62c7b4e871dc402aef50cac5fa2f9e92` |
+| `docs/dev/TASKS-REVIEW-REPORT.md` | `46c74508cd0227cc74c06f9fca24288836e59426daa81d394ec67fd84151b37c` |

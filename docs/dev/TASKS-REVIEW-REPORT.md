@@ -2,9 +2,11 @@
 
 ## Current gate
 
+Current browser-policy assessment: **Ready**, Revision 3 below. The accepted amendment supersedes the earlier browser-matrix conclusions and source identities for affected files.
+
 State: **Ready**, with first human TASKS approval recorded in DOCS_TASKS. Task conformance and decomposition QC pass with no unresolved confirmed finding. Whole-package DOCS-009 QC, published preparation integration and executable-range/phase-tracking gates remain pending; this report does not authorize implementation or hosted task projection.
 
-Reviewed root: [TASKS](TASKS.md), SHA-256 `dab78da40bb364b537604ab1526f6d09173ec5b1f87ba8b4c26e27b82be45490`. No focused task children exist. Reviewer: sdd-tasks, single-agent document review on 2026-10-19; sdd-report format. All 32 task checkboxes remain unchecked.
+Reviewed root: [TASKS](TASKS.md), SHA-256 `5f67bef3becfc371403c46a51d75abd1cdf7a518d5398791de5520a483794ed1`. No focused task children exist. Reviewer: sdd-tasks, single-agent document review on 2026-10-19; sdd-report format. All 32 task checkboxes remain unchecked.
 
 Governing states below are Git blobs at accepted layout checkpoint `1a55d0570e4a84fbf5f2d921c2563c26e8fb01df`. SPEC and PLAN reports retain upstream conformance and approval evidence; DOCS_TASKS records first approvals through layout. These source files were not changed during task derivation.
 
@@ -72,3 +74,17 @@ sdd-manage coordinated editorial status/navigation corrections under DOCS-009; t
 - `TASKS.md` SHA-256: `dab78da40bb364b537604ab1526f6d09173ec5b1f87ba8b4c26e27b82be45490`.
 
 Recheck outcome: Ready for the same scoped conformance, with no new confirmed contract/decomposition finding. SPEC children remain byte-identical. The whole-package report owns preparation readiness; implementation evidence and range selection remain pending.
+
+## Revision 3 — Browser environment and acceptance
+
+Date: 2026-10-20. Baseline: `b488d89e156cd333a73d061a26fd4053b0b42527`. The human explicitly authorized Chromium as primary, Playwright-managed Firefox as the second target, isolated provisioning evidence in T-001 and reassessment of the affected QC conclusions. Earlier observations and source identities above are retained as review history.
+
+sdd-tasks rechecked T-001 and T-018 against the revised SPEC/layout and central policy. T-001 now requires isolated provisioning and records binary/state ownership, runner/build provenance, installation/run configuration and an actual runner launch; availability alone cannot satisfy it. T-018 requires actual Chromium and managed Firefox application evidence. The policy remains the canonical owner of detailed setup/isolation rules. No dependency, task identity, task status or milestone boundary changed: 32 unchecked tasks, 25 delivery tasks and seven review tasks; delivery counts remain 7/5/5/4/4, with the retained cohesion rationale above. **Ready:** affected task conformance passes with no open finding. No product task or browser check was executed.
+
+| Current source | SHA-256 |
+| --- | --- |
+| `BROWSER_DEV_POLICY.md` | `3728e7460b0a3365a580f69a3c72cf03a4768f0b750356c44ef4c169fa1c64f9` |
+| `docs/dev/SPEC.md` | `f491e22d1a5893511cffe15df8e3c7a182dccd29a63d9ec55439f0cf12311748` |
+| `docs/dev/PLAN.md` | `7775ab7efe655284f696366a6b15281c0fcb70ed91029994224749aeedf104d3` |
+| `docs/dev/layout.md` | `3eb5bf7f21c9150c39835fbe9b441ce228bd5a366cd61572b7716dce76b2544d` |
+| `docs/dev/TASKS.md` | `5f67bef3becfc371403c46a51d75abd1cdf7a518d5398791de5520a483794ed1` |
